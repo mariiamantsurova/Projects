@@ -1,18 +1,39 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Result</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Result</h1>-->
+<!--    <table>-->
+<!--        <tr>-->
+
+<!--        </tr>-->
+<!--        <tr>-->
+
+<!--        </tr>-->
+<!--    </table>-->
+
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Result</title>
+    <title>Matrix {{ operation }} Result</title>
 </head>
 <body>
-    <h1>Result</h1>
-    <table>
+    <h1>Matrix {{ operation }} Result</h1>
+    <table border="1">
+        {% for row in result %}
         <tr>
-
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
         </tr>
-        <tr>
-
-        </tr>
+        {% endfor %}
     </table>
-
+    <br>
+    <a href="/">Back to Homepage</a>
 </body>
 </html>
