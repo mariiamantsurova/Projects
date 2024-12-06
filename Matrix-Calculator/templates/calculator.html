@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- displaying the result of the calculation -->
-    <title>Matrix {{ operation }} Result</title>
+    <title>Matrix Calculator</title>
 </head>
 <body>
-    <h1>Matrix {{ operation }} Result</h1>
+    <h1>Matrix Calculator</h1>
+
+    <!-- Display Error Messages -->
+    {% if error %}
+    <div style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 20px;">
+        <p>{{ error|safe }}</p>
+        <a href="/">Go Back to Homepage</a>
+    </div>
+    {% endif %}
+
+    <!-- Display Results -->
+    {% if result %}
+    <h2>Matrix {{ operation }} Result</h2>
     <table border="1">
         {% for row in result %}
         <tr>
@@ -17,5 +28,12 @@
     </table>
     <br>
     <a href="/">Back to Homepage</a>
+    {% endif %}
+
+    <!-- Display fallback link if no error or result -->
+    {% if not error and not result %}
+    <br>
+    <a href="/">Back to Homepage</a>
+    {% endif %}
 </body>
 </html>

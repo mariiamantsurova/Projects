@@ -30,17 +30,15 @@ def calculate():
     try:
         mat1 = mat1.split(',')
         mat2 = mat2.split(',')
-
+        error_message = 'Invalid format.<br>Please provide square matrix\'s and in the same size, contain only integers separated by commas'
         # matrix's must be square
         # if the sqrt(mat) is int then it's a quadric mat
         if not math.sqrt(len(mat1)).is_integer():
-            flash('Invalid format.<br>Please provide square matrix\'s and in the same size, contain only integers separated by commas')
-            return redirect("/")
+            return render_template("calculator.html", error=error_message)
 
         # matrix's must be with the same size
         elif len(mat1) != len(mat2):
-            flash('Invalid format.<br>Please provide square matrix\'s and in the same size, contain only integers separated by commas')
-            return redirect("/")  #### url to homepage
+            return render_template("calculator.html", error=error_message)
 
         # matrix's must contain only int
         else:
@@ -49,12 +47,10 @@ def calculate():
                 mat1 = list(map(int, mat1))
                 mat2 = list(map(int, mat2))
             except:
-                flash('Invalid format.<br>Please provide square matrix\'s and in the same size, contain only integers separated by commas')
-                return redirect("/")
+                return render_template("calculator.html", error=error_message)
 
     except:
-        flash('Invalid format.<br>Please provide square matrix\'s and in the same size, contain only integers separated by commas')
-        return redirect("/")
+        return render_template("calculator.html", error=error_message)
 
     # Determine the size of the square matrix
     n = int(math.sqrt(len(mat1)))
