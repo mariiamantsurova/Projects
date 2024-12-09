@@ -18,13 +18,14 @@ def calculate():
 
     # Check for all required variables
     if not operation or not mat1 or not mat2:
-        flash("Missing parameters")
-        return redirect("/") #### redirecting  to homepage
+        error_message = 'Invalid format.<br>Please provide square matrices of the same size, containing only integers separated by commas.'
+        return render_template("calculator.html", error=error_message)
+
 
     # operation validation
     if not operation.lower() in ('multiply', 'add'):
-        flash('Operation is not valid')
-        return redirect("/") #### redirecting to homepage
+        error_message = 'Invalid format.<br>Please provide square matrices of the same size, containing only integers separated by commas.'
+        return render_template("calculator.html", error=error_message)
 
     # matrix validation
     try:
