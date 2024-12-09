@@ -30,7 +30,7 @@ def calculate():
     try:
         mat1 = mat1.split(',')
         mat2 = mat2.split(',')
-        error_message = 'Invalid format.<br>Please provide square matrix\'s and in the same size, contain only integers separated by commas'
+        error_message = 'Invalid format.<br>Please provide square matrices of the same size, containing only integers separated by commas.'
         # matrix's must be square
         # if the sqrt(mat) is int then it's a quadric mat
         if not math.sqrt(len(mat1)).is_integer():
