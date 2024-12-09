@@ -18,13 +18,14 @@ def calculate():
 
     # Check for all required variables
     if not operation or not mat1 or not mat2:
-        flash("Missing parameters")
-        return redirect("/") #### redirecting  to homepage
+        error_message = 'Invalid format.<br>Please provide square matrices of the same size, containing only integers separated by commas.'
+        return render_template("calculate.html", error=error_message)
+
 
     # operation validation
     if not operation.lower() in ('multiply', 'add'):
-        flash('Operation is not valid')
-        return redirect("/") #### redirecting to homepage
+        error_message = 'Invalid format.<br>Please provide square matrices of the same size, containing only integers separated by commas.'
+        return render_template("calculate.html", error=error_message)
 
     # matrix validation
     try:
@@ -34,11 +35,11 @@ def calculate():
         # matrix's must be square
         # if the sqrt(mat) is int then it's a quadric mat
         if not math.sqrt(len(mat1)).is_integer():
-            return render_template("calculator.html", error=error_message)
+            return render_template("calculate.html", error=error_message)
 
         # matrix's must be with the same size
         elif len(mat1) != len(mat2):
-            return render_template("calculator.html", error=error_message)
+            return render_template("calculate.html", error=error_message)
 
         # matrix's must contain only int
         else:
@@ -47,10 +48,10 @@ def calculate():
                 mat1 = list(map(int, mat1))
                 mat2 = list(map(int, mat2))
             except:
-                return render_template("calculator.html", error=error_message)
+                return render_template("calculate.html", error=error_message)
 
     except:
-        return render_template("calculator.html", error=error_message)
+        return render_template("calculate.html", error=error_message)
 
     # Determine the size of the square matrix
     n = int(math.sqrt(len(mat1)))
@@ -73,9 +74,9 @@ def calculate():
         operation_type = "Addition"
 
     # Render the result page
-    return render_template("calculator.html", result=result.tolist(), operation=operation_type)
+    return render_template("calculate.html", result=result.tolist(), operation=operation_type)
 
-    #return render_template("calculator.html")
+    #return render_template("calculate.html")
 
 
 @app.errorhandler(404)  # Handle 404 errors - in case of page do not exist
