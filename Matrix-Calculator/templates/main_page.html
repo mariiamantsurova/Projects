@@ -1,35 +1,134 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Matrix Calculator</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Matrix Calculator</h1>-->
+<!--    <p>Group Number: 15 </p>-->
+<!--    <p>Michelle Rudinsky's ID - 211565858 <br>-->
+<!--        Miriam ID -  <br>-->
+<!--        Naomi Taskar's ID - 323868695 </p>-->
+
+<!--    {% with messages = get_flashed_messages() %}-->
+<!--        {% if messages %}-->
+<!--            <ul>-->
+<!--                {% for message in messages %}-->
+<!--                    <li style="color: red;">{{ message|safe }}</li>-->
+<!--                {% endfor %}-->
+<!--            </ul>-->
+<!--        {% endif %}-->
+<!--    {% endwith %}-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <td style="padding-right: 20px;"> to multiply</td>-->
+<!--            <td>-->
+<!--                <table BORDER="2" CELLPADDING="4">-->
+<!--                    <tr>-->
+<!--                        <th>1</th>-->
+<!--                        <th>2</th>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th>3</th>-->
+<!--                        <th>4</th>-->
+<!--                    </tr>-->
+<!--                </table>-->
+<!--            </td>-->
+<!--            <td style="padding-left: 20px; padding-right: 20px;"> by </td>-->
+<!--            <td>-->
+<!--                <table BORDER="2" CELLPADDING="4">-->
+<!--                    <tr>-->
+<!--                        <th>5</th>-->
+<!--                        <th>6</th>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <th>7</th>-->
+<!--                        <th>8</th>-->
+<!--                    </tr>-->
+<!--                </table>-->
+<!--            </td>-->
+<!--            <td style="padding-left: 20px;">-->
+<!--            &lt;!&ndash; Add a link to the homepage &ndash;&gt;-->
+<!--                <a href="/calculate?operation=multiply&mat1=1,2,3,4&mat2=5,6,7,8">click here</a>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </table>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Matrix Calculator</title>
 </head>
 <body>
-    <h1>Matrix Calculator</h1>
-    <p>Group Number: 15 </p>
-    <p>Michelle Rudinsky's ID - 211565858 <br>
-        Miriam ID -  <br>
-        Naomi Taskar's ID - 323868695 </p>
+    <!-- Create a main table to center everything vertically and horizontally -->
+    <table width="100%" height="100%">
+        <tr>
+            <td align="center" valign="middle">
+                <!-- Nested table for content, aligned to the left -->
+                <table align="center">
+                    <tr>
+                        <td>
+                            <h1 style="text-align: left;">Matrix Calculator</h1>
+                            <p style="text-align: left;">
+                                Group Number: 15 <br>
+                                Michelle Rudinsky's ID - 211565858 <br>
+                                Miriam ID - <br>
+                                Naomi Taskar's ID - 323868695
+                            </p>
 
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li style="color: red;">{{ message|safe }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-    <p> to multiply </p>
-    <table>
-        <tr>
-            <th>1</th>
-            <th>2</th>
-        </tr>
-        <tr>
-            <th>3</th>
-            <th>4</th>
+                            {% with messages = get_flashed_messages() %}
+                                {% if messages %}
+                                    <ul>
+                                        {% for message in messages %}
+                                            <li style="color: red; text-align: left;">{{ message|safe }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            {% endwith %}
+
+                            <!-- Content aligned to the left -->
+                            <table>
+                                <tr>
+                                    <td style="padding-right: 20px; text-align: left;">to multiply</td>
+                                    <td>
+                                        <table BORDER="2" CELLPADDING="4">
+                                            <tr>
+                                                <th>1</th>
+                                                <th>2</th>
+                                            </tr>
+                                            <tr>
+                                                <th>3</th>
+                                                <th>4</th>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="padding-left: 20px; padding-right: 20px; text-align: left;">by</td>
+                                    <td>
+                                        <table BORDER="2" CELLPADDING="4">
+                                            <tr>
+                                                <th>5</th>
+                                                <th>6</th>
+                                            </tr>
+                                            <tr>
+                                                <th>7</th>
+                                                <th>8</th>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="padding-left: 20px; text-align: left;">
+                                        <a href="/calculate?operation=multiply&mat1=1,2,3,4&mat2=5,6,7,8">click here</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
         </tr>
     </table>
-
 </body>
 </html>

@@ -1,39 +1,93 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Matrix Calculator</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Matrix Calculator</h1>-->
+
+<!--    &lt;!&ndash; Display Error Messages &ndash;&gt;-->
+<!--    {% if error %}-->
+<!--    <div style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 20px;">-->
+<!--        <p>{{ error|safe }}</p>-->
+<!--        <a href="/">Go Back to Homepage</a>-->
+<!--    </div>-->
+<!--    {% endif %}-->
+
+<!--    &lt;!&ndash; Display Results &ndash;&gt;-->
+<!--    {% if result %}-->
+<!--    <h2>Matrix {{ operation }} Result</h2>-->
+<!--    <table border="1">-->
+<!--        {% for row in result %}-->
+<!--        <tr>-->
+<!--            {% for item in row %}-->
+<!--            <td>{{ item }}</td>-->
+<!--            {% endfor %}-->
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--    </table>-->
+<!--    <br>-->
+<!--    <a href="/">Back to Homepage</a>-->
+<!--    {% endif %}-->
+
+<!--    &lt;!&ndash; Display fallback link if no error or result &ndash;&gt;-->
+<!--    {% if not error and not result %}-->
+<!--    <br>-->
+<!--    <a href="/">Back to Homepage</a>-->
+<!--    {% endif %}-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Matrix Calculator</title>
 </head>
 <body>
-    <h1>Matrix Calculator</h1>
-
-    <!-- Display Error Messages -->
-    {% if error %}
-    <div style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 20px;">
-        <p>{{ error|safe }}</p>
-        <a href="/">Go Back to Homepage</a>
-    </div>
-    {% endif %}
-
-    <!-- Display Results -->
-    {% if result %}
-    <h2>Matrix {{ operation }} Result</h2>
-    <table border="1">
-        {% for row in result %}
+    <!-- Outer table to center everything vertically and horizontally -->
+    <table width="100%" height="100%">
         <tr>
-            {% for item in row %}
-            <td>{{ item }}</td>
-            {% endfor %}
-        </tr>
-        {% endfor %}
-    </table>
-    <br>
-    <a href="/">Back to Homepage</a>
-    {% endif %}
+            <td align="center" valign="middle">
+                <!-- Inner table for content, aligned to the left -->
+                <table align="center">
+                    <tr>
+                        <td>
+                            <h1 align = "center">Matrix Calculator</h1>
 
-    <!-- Display fallback link if no error or result -->
-    {% if not error and not result %}
-    <br>
-    <a href="/">Back to Homepage</a>
-    {% endif %}
+                            <!-- Display Error Messages -->
+                            {% if error %}
+                            <div style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 20px; text-align: left;">
+                                <p>{{ error|safe }}</p>
+                                <a href="/">Go Back to Homepage</a>
+                            </div>
+                            {% endif %}
+
+                            <!-- Display Results -->
+                            {% if result %}
+                            <h2 style="text-align: center;">Matrix {{ operation }} Result</h2>
+                            <table border="1" cellpadding="5" style="margin: auto;">
+                                {% for row in result %}
+                                <tr>
+                                    {% for item in row %}
+                                    <td>{{ item }}</td>
+                                    {% endfor %}
+                                </tr>
+                                {% endfor %}
+                            </table>
+                            <br>
+                            <a href="/" style="display: block; text-align: center;">Back to Homepage</a>
+                            {% endif %}
+
+                            <!-- Fallback link if no error or result -->
+                            {% if not error and not result %}
+                            <br>
+                            <a href="/" style="text-align: left;">Back to Homepage</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
