@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,17 +11,50 @@
     />
     <title>TCP/IP</title>
   </head>
-  <body>
+  <body
+    style="
+      font-family: Ubuntu, sans-serif;
+      font-weight: 300;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      background: linear-gradient(90deg, #283c86, #2f0a32);
+    "
+  >
     <h1><u>The OSI Model</u></h1>
-    <div class="main-container">
+    <div
+      style="
+        padding: 30px;
+        width: 80%;
+        background: linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.2),
+          rgba(255, 255, 255, 0.1)
+        );
+        border-radius: 45px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      "
+    >
       <h2>
         The OSI Model (Open Systems Interconnection) is a framework that
         standardizes how devices communicate over a network by dividing the
         process into 7 layers. Each layer handles a specific aspect of
         communication.
       </h2>
-      <div class="sub-container">
-        <ul>
+      <div
+        style="
+          margin: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          flex-wrap: wrap;
+        "
+      >
+        <ul style="line-height: 200%">
           <li>
             <b>Physical Layer</b>: Transmits raw bits over a physical medium
             (e.g., cables, wireless).
@@ -54,7 +86,7 @@
         <img src="../static/images/image 1.png" alt="OSI model" />
       </div>
       <h2>Importance of the OSI Model:</h2>
-      <ul>
+      <ul style="line-height: 200%">
         <li>
           <b>Standardization</b>: Provides a universal language for network
           communication, ensuring compatibility between devices from different
