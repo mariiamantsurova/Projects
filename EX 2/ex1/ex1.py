@@ -41,7 +41,7 @@ class FruitBasket:
         return basket_price
 
     def BasketShelfTime(self):
-        if  not self.fruit_list:  # if the basket is empty
+        if not self.fruit_list:  # if the basket is empty
             return -1
         return min(self.fruit_list, key=lambda fruit: fruit.shelf_time_in_hours).getShelfTime()
 
