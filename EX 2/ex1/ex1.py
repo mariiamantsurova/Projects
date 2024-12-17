@@ -1,5 +1,4 @@
 class FruitItem:
-    # global variable
     default_price = 10
     def __init__(self, name, price, shelf_time_in_hours):
         self.name = name
@@ -28,8 +27,7 @@ class FruitBasket:
         self.fruit_list.append(fruit)
 
 
-    ## to ask if the function need to return the self.fruit_list or return a message if not found or return none?
-    def DefFruitItem(self, fruit):
+    def DelFruitItem(self, fruit):
         for f in self.fruit_list:
             if f.name == fruit.name and f.price == fruit.price:
                 self.fruit_list.remove(f)
@@ -63,36 +61,34 @@ class FruitBasket:
 
 class HolidayFruitBasket(FruitBasket):
     def __init__(self, holiday_greeting):
+        super().__init__()
         self.holiday_greeting = holiday_greeting
 
 
+    #### not sure what the want here !!!
+    def getPrice(self):
+        return super().BasketPrice() * 0.95
 
+    def BasketShelfTime(self):
+        return super().BasketShelfTime()
+    def AddFruitItem(self, fruit):
+        super().AddFruitItem(fruit)
 
-##########################
-"""
-Banana = FruitItem("Banana", 25, 10)
-Apple = FruitItem("Apple", 2.5, 11)
-Fruit_Basket = FruitBasket()
-print(Fruit_Basket.BasketPrice())
-print(Fruit_Basket.BasketShelfTime())
-Fruit_Basket.AddFruitItem(Apple)
-Fruit_Basket.AddFruitItem(Banana)
-Apple = FruitItem("Apple", 2.5, 11)
-Fruit_Basket.AddFruitItem(Apple)
-print(Fruit_Basket)
-Fruit_Basket.DefFruitItem(Apple)
-print(Fruit_Basket)
-Fruit_Basket.DefFruitItem(Apple)
-print(Fruit_Basket)
-Fruit_Basket.DefFruitItem(Apple)
-print(Fruit_Basket)
-Fruit_Basket.DefFruitItem(Banana)
-print(Fruit_Basket)
-"""
+    def DelFruitItem(self, fruit):
+        super().DelFruitItem(fruit)
 
-########################
+    def __str__(self):
+        if not self.fruit_list:  # if the basket is empty
+            return 'The Fruit Basket is empty'
+
+        wanted_string = self.holiday_greeting + "\n"
+        for fruit in self.fruit_list:
+            wanted_string += str(fruit) + "\n"
+        return wanted_string
+
 
 # wanted checks:
+"""
 cut_apples = FruitItem('Cut Apples', 15, 4)
 print(cut_apples)
 strawberries = FruitItem('Strawberries', 22, 6)
@@ -105,3 +101,17 @@ print(b1.BasketPrice())
 print(b1.BasketShelfTime())
 if(b1):
     print(b1)
+
+"""
+
+cut_apples = FruitItem('Cut Apples', 15, 4)
+strawberries = FruitItem('Strawberries', 22, 6)
+b3 = HolidayFruitBasket("Marry Christmas")
+b3.AddFruitItem(cut_apples)
+b3.AddFruitItem(strawberries)
+b3.AddFruitItem(strawberries)
+b3.DelFruitItem(cut_apples)
+
+print(b3)
+print(b3.getPrice())
+print(b3.BasketShelfTime())
