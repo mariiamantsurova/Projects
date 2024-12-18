@@ -16,7 +16,7 @@ class FruitItem:
 
     # custom print behavior
     def __str__(self):
-        return f"Fruit Name: {self.name}, Price: {float(self.price)}, Shelf time: {self.shelf_time_in_hours} hours"
+        return f"Fruit Name: {self.name}, Price: {float(self.price):.2f}, Shelf time: {self.shelf_time_in_hours} hours"
 
 
 class FruitBasket:
@@ -26,10 +26,9 @@ class FruitBasket:
     def AddFruitItem(self, fruit):
         self.fruit_list.append(fruit)
 
-
     def DelFruitItem(self, fruit):
         for f in self.fruit_list:
-            if f.name == fruit.name and f.price == fruit.price:
+            if f == fruit:
                 self.fruit_list.remove(f)
 
     def BasketPrice(self):
@@ -64,13 +63,12 @@ class HolidayFruitBasket(FruitBasket):
         super().__init__()
         self.holiday_greeting = holiday_greeting
 
-
-    #### not sure what the want here !!!
     def getPrice(self):
         return super().BasketPrice() * 0.95
 
     def BasketShelfTime(self):
         return super().BasketShelfTime()
+
     def AddFruitItem(self, fruit):
         super().AddFruitItem(fruit)
 
@@ -87,31 +85,31 @@ class HolidayFruitBasket(FruitBasket):
         return wanted_string
 
 
-# wanted checks:
-"""
+
+print("## Wanted Checks For a: ##")
 cut_apples = FruitItem('Cut Apples', 15, 4)
 print(cut_apples)
+
 strawberries = FruitItem('Strawberries', 22, 6)
 print(strawberries)
 b1 = FruitBasket()
+
 b1.AddFruitItem(cut_apples)
 b1.AddFruitItem(strawberries)
 print(b1)
 print(b1.BasketPrice())
 print(b1.BasketShelfTime())
+
+print("\n## Wanted Checks For b:##")
 if(b1):
     print(b1)
 
-"""
-
-cut_apples = FruitItem('Cut Apples', 15, 4)
-strawberries = FruitItem('Strawberries', 22, 6)
+print("\n## Wanted Checks For c:##")
 b3 = HolidayFruitBasket("Marry Christmas")
 b3.AddFruitItem(cut_apples)
 b3.AddFruitItem(strawberries)
 b3.AddFruitItem(strawberries)
 b3.DelFruitItem(cut_apples)
-
 print(b3)
 print(b3.getPrice())
 print(b3.BasketShelfTime())
