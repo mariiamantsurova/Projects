@@ -66,15 +66,6 @@ class HolidayFruitBasket(FruitBasket):
     def getPrice(self):
         return super().BasketPrice() * 0.95
 
-    def BasketShelfTime(self):
-        return super().BasketShelfTime()
-
-    def AddFruitItem(self, fruit):
-        super().AddFruitItem(fruit)
-
-    def DelFruitItem(self, fruit):
-        super().DelFruitItem(fruit)
-
     def __str__(self):
         if not self.fruit_list:  # if the basket is empty
             return 'The Fruit Basket is empty'
