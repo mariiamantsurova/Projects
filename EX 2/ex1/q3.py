@@ -11,7 +11,7 @@ class Knas:
         # printing the details:
 
         print(f"Knas details: {knas_details}")
-        print(f" The original knas was: {original_knas}")
+        print(f"The original knas was: {original_knas}")
         print(f"{self.delay_time_in_days} days have passed since the deadline time to pay.")
         print(f"The new knas is now {new_knas}")
         print(f"You should pay this within 30 days. Thank you.")
