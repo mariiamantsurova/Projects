@@ -23,7 +23,9 @@ two_months_delay_150 = Knas(60, 150)
 
 # Call the instances with the required parameters
 one_month_delay_115("Parking in an unauthorized area", 300)
+print("--------------------------------------")
 one_month_delay_125("Driving above the speed limit", 500)
+print("--------------------------------------")
 two_months_delay_150("Parking on red-white area", 400)
 
 
