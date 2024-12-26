@@ -63,7 +63,7 @@ class HolidayFruitBasket(FruitBasket):
         super().__init__()
         self.holiday_greeting = holiday_greeting
 
-    def getPrice(self):
+    def BasketPrice(self):
         return super().BasketPrice() * 0.95
 
     def __str__(self):
@@ -102,5 +102,5 @@ b3.AddFruitItem(strawberries)
 b3.AddFruitItem(strawberries)
 b3.DelFruitItem(cut_apples)
 print(b3)
-print(b3.getPrice())
+print(b3.BasketPrice())
 print(b3.BasketShelfTime())
