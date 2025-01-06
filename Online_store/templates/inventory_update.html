@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory Update</title>
+</head>
+<body>
+<div>
+    <h1> Inventory Update</h1>
+    <!-- Form for updating inventory -->
+    <form action="/update_table" method="post">
+    <table>
+        <tr>
+            <td> Select item to update:</td>
+            <td>
+                <select name = "cloth_id" required>
+                    <option value = '16' >16</option>
+                    <option value = '17' >17</option>
+                    <option value = '18' >18</option>
+                    <option value = '19' >19</option>
+                    <option value = '20' >20</option>
+                    <option value = '21' >21</option>
+                    <option value = '22' >22</option>
+                    <option value = '23' >23</option>
+                    <option value = '24' >24</option>
+                    <option value = '25' >25</option>
+                    <option value = '26' >26</option>
+                    <option value = '27' >27</option>
+                    <option value = '28' >28</option>
+                    <option value = '29' >29</option>
+                    <option value = '30' >30</option>
+
+        </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Select quantity:</td>
+            <td>
+                <input type="number" name ="quantity_to_update" required>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <input type="submit" value="Update" class="important_button">
+
+
+</form>
+        <!-- Display success or error messages -->
+    {% if message %}
+        <p style="color: green;">{{ message }}</p>
+    {% endif %}
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</div>
+</body>
+</html>
+
+
+
+
+</div>
+</body>
+</html>
