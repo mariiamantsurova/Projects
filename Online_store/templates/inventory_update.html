@@ -8,7 +8,7 @@
 <div>
     <h1> Inventory Update</h1>
     <!-- Form for updating inventory -->
-    <form action="/update_table" method="post">
+    <form action="/handle_form" method="post">
     <table>
         <tr>
             <td> Select item to update:</td>
@@ -41,7 +41,7 @@
         </tr>
     </table>
     <br/>
-    <input type="submit" value="Update" class="important_button">
+    <input type="submit" name="update" value="Update" class="important_button">
 
 
 </form>
@@ -53,12 +53,60 @@
         <p style="color: red;">{{ error }}</p>
     {% endif %}
 </div>
+
+
+<div>
+    <h1> Add New Item</h1>
+    <!-- Form for Adding a new item -->
+    <form action="/handle_form" method="post">
+    <table>
+        <tr>
+            <h5> please fill in the details of the item:</h5>
+            <td>Cloth id:</td>
+            <td>
+                <input type="text" name="cloth_id" required>
+            </td>
+        </tr>
+        <tr>
+            <td>Cloth Name:</td>
+            <td>
+                <input type="text" name ="cloth_name" required>
+            </td>
+        </tr>
+        <tr>
+            <td>Cloth Price:</td>
+            <td>
+                <input type="number" name ="cloth_price" required>
+            </td>
+        </tr>
+        <tr>
+            <td>Available Amount:</td>
+            <td>
+                <input type="number" name ="available_amount" required>
+            </td>
+        </tr>
+        <tr>
+            <td>Image Link:</td>
+            <td>
+                <input type="text" name ="img_path" required>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <input type="submit" name = "form_id" value="Add" class="important_button">
+
+
+</form>
+        <!-- Display success or error messages -->
+    {% if message %}
+        <p style="color: green;">{{ message }}</p>
+    {% endif %}
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</div>
+
 </body>
 </html>
-
-
-
-
-</div>
 </body>
 </html>

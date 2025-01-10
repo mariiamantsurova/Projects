@@ -54,3 +54,25 @@ PRIMARY KEY(order_num, cloth_id),
 FOREIGN KEY(order_num) REFERENCES transactions(order_num),
 FOREIGN KEY(cloth_id) REFERENCES clothes(cloth_id)
 );
+
+CREATE TABLE online_store.new_items(
+cloth_id INT NOT NULL UNIQUE,
+email VARCHAR(45) NOT NULL UNIQUE,
+adding_date DATE NOT NULL,
+adding_hour TIME NOT NULL
+PRIMARY KEY(cloth_id, email, adding_date, adding_hour)
+FOREIGN KEY(email) REFERENCES users(email),
+FOREIGN KEY(cloth_id) REFERENCES clothes(cloth_id)
+);
+
+CREATE TABLE online_store.inventory_update(
+cloth_id INT NOT NULL UNIQUE,
+email VARCHAR(45) NOT NULL UNIQUE,
+quantity INT NOT NULL,
+update_date DATE NOT NULL,
+update_hour TIME NOT NULL,
+PRIMARY KEY(cloth_id, email, update_date, update_hour),
+FOREIGN KEY(email) REFERENCES users(email),
+FOREIGN KEY(cloth_id) REFERENCES clothes(cloth_id)
+);
+
