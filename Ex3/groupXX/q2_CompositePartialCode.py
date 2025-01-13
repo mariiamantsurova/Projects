@@ -23,7 +23,26 @@ class Item(PackageComponent):
 
 # Composite: Packages containing items or other packages
 class Package(PackageComponent):
-    pass
+    def __init__(self, name):
+        self.name = name
+        self.components = []
+    def add_component(self, component:PackageComponent):
+        self.components.append(component)
+
+    def remove_component(self, component:PackageComponent):
+        self.components.remove(component)
+    def get_price(self):
+        price = 0
+        for component in self.components:
+            price += component.get_price()
+
+    # don't know what to do here:
+
+    # def show_details(self, indent=0):
+    #     for component in self.components:
+    #         print(f"{self.name}, Price:{self.price}")
+
+
 
 
 if __name__ == '__main__':
