@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import mysql.connector
 from datetime import datetime
-import os
+# import os
 
 app = Flask(__name__, template_folder='templates')
 
@@ -13,7 +13,6 @@ mydb = mysql.connector.connect(
     database="online_store"
 )
 cursor = mydb.cursor()
-
 @app.route('/')
 def homepage():
     return render_template("home_page.html")
