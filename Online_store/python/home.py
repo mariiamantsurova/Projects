@@ -18,12 +18,15 @@ def home_route(app,cursor,mydb):
             order_num = random.randint(100000, 999999)
 
             cursor.execute("""INSERT INTO online_store.transactions (order_num, date, hour, email) VALUES (%s, CURDATE(), CURTIME(), %s)""",(order_num, session['email'])
-)
+)               
+            mydb.commit()
 
 
             for sku, quantity in modified_items.items():
                 cursor.execute("""INSERT INTO clothes_in_transaction (order_num, sku, amount) VALUES (%s, %s, %s)""",  (order_num, sku, quantity),)
                   
+            mydb.commit()
+
             return render_template("transaction.html", order_num=order_num, items=modified_items)
         else:
             session['email'] = "jane.doe@example.com"
