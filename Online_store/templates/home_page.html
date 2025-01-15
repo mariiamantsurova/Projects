@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
-</head>
-<body>
-    <h1>Welcome to the Main Page</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <h1>Home</h1>
+    {% if is_admin %}
+    <a href="/inventory_update/{{session['email']}}"> Admin Panel </a>
+    {% endif %}
+    <form action="/" method="POST">
+      {%for item in clothes%}
+      <div class="item-container">
+        <img src="{{item[5]}}" alt="item-{{item[0]}}" />
+        <h2>{{item[1]}}</h2>
+        <span>Price: {{item[2]}}</span>
+        <span>Available: {{item[3]}}</span>
+        <label for="quantity_{{ item[0] }}">Quantity:</label>
+        <input name="{{item[0]}}" type="number" min="0" value="0" />
+      </div>
+      {% endfor %}
+      <div class="submit">
+        <button type="submit">Buy</button>
+      </div>
+    </form>
+  </body>
 </html>
