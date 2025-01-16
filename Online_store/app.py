@@ -2,6 +2,7 @@ from flask  import Flask , session
 import mysql.connector
 from python.home import home_route
 from python.inventory_update import inventory_update_route
+from python.registration_and_login import register
 from python.error import error_route
 from flask_session import Session
 
@@ -25,6 +26,7 @@ Session(app)
 # Import routes from other files
 home_route(app, cursor,mydb)
 inventory_update_route(app, cursor,mydb)
+register(app, cursor,mydb)
 error_route(app)
 
 
