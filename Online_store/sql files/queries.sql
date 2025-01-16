@@ -2,9 +2,9 @@
 -- popularity query 
 (
     -- Top 10 Most Popular
-    SELECT 'Top 10' AS category, c.sku, c.name, SUM(t.amount) AS amount
+    SELECT 'Top 10' AS category, c.sku, c.name, SUM(c.available_amount) AS amount
     FROM online_store.clothes c
-    JOIN online_store.clothes_in_transaction cit ON cit.sku = t.sku
+    JOIN online_store.clothes_in_transaction cit ON cit.sku = c.sku
     GROUP BY c.sku, c.name
     ORDER BY amount DESC
     LIMIT 10
@@ -12,14 +12,18 @@
 UNION ALL
 (
     -- Bottom 10 Least Popular
-    SELECT 'Bottom 10' AS category, c.sku, c.name, SUM(t.amount) AS amount
+    SELECT 'Bottom 10' AS category, c.sku, c.name, SUM(c.available_amount) AS amount
     FROM online_store.clothes c
-    JOIN online_store.clothes_in_transaction cit ON cit.sku = t.sku
+    JOIN online_store.clothes_in_transaction cit ON cit.sku = c.sku
     GROUP BY c.sku, c.name
     ORDER BY amount ASC
     LIMIT 10
 )
-ORDER BY category ASC;
+ORDER BY category ASC
+;
+
+
+
 
 -- campaign impact 
 SELECT 

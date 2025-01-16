@@ -16,13 +16,25 @@ INSERT INTO online_store.clothes (sku, name, price, available_amount, is_promote
 VALUES
 (101, 'T-Shirt', 25, 50, TRUE, '/images/tshirt.jpg'),
 (102, 'Jeans', 40, 30, FALSE, '/images/jeans.jpg'),
-(103, 'Jacket', 60, 20, TRUE, '/images/jacket.jpg');
+(103, 'Jacket', 60, 20, TRUE, '/images/jacket.jpg'),
+(104, 'Dress', 25, 50, TRUE, '/images/Dress.jpg'),
+(105, 'Blue T-Shirt', 40, 30, FALSE, '/images/BlueT-Shirt.jpg'),
+(106, 'Denim Jacket', 60, 20, TRUE, '/images/DenimJacket.jpg');
+
 
 -- Insert into clothes_in_transaction
 INSERT INTO online_store.clothes_in_transaction (order_num, sku, amount)
 VALUES
 (1001, 101, 2), -- 2 T-Shirts in John's order
-(1002, 103, 1); -- 1 Jacket in Jane's orde
+(1003, 101, 1),
+(1002, 103, 1),
+(1002, 101, 2), -- 2 T-Shirts in John's order
+(1003, 103, 1),
+(1002, 102, 2),
+(1003, 102, 1),
+(1001, 102, 1),
+(1001, 103, 1); -- 1 Jacket in Jane's orde
+
 
 
 -- Insert into new_items
