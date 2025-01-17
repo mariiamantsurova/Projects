@@ -20,38 +20,42 @@ def register_and_login(app, cursor, mydb):
             faculty = request.form.get("faculty")
             is_admin = False  # Necessarily a regular user
 
-            ###### needs to deal with enetring already existing email becuase its unique value #####
+            # Check if email already exists
+            cursor.execute("SELECT * FROM online_store.users WHERE email = %s;", (email,))
+            existing_user = cursor.fetchone()
+            if existing_user:
+                # If email exists, return the registration page with an error message
+                return render_template("register.html", error="Email already exists. Please enter a different one.")
 
             # insert new user info the users table.
-            query = "INSERT INTO online_store.users(email, username, password, age, sex, faculty, is_admin) VALUES(%s,%s,%s,%s,%s,%s,%s);"
-            values = (email, name, password, age, sex, faculty, is_admin)
-            # Execute the query
-            cursor.execute(query, values)
-            mydb.commit()
-            cursor.execute("SELECT * FROM users;")
-            print(cursor.fetchall())
-            return render_template("register.html")
-
-            # if temp_db.get(email) == password:
-            #    session['email'] = email
-            #    return redirect("/")
-            # else:
-            #    return render_template("register.html", message='Incorrect Login Details.')
+            else:
+                query = "INSERT INTO online_store.users(email, username, password, age, sex, faculty, is_admin) VALUES(%s,%s,%s,%s,%s,%s,%s);"
+                values = (email, name, password, age, sex, faculty, is_admin)
+                cursor.execute(query, values)
+                mydb.commit()
+                return render_template("home_page.html")
         return render_template("register.html")
 
     @app.route("/login", methods=["POST", "GET"])
     def login():
         if request.method == "POST":
             email = request.form.get("email")  # unique value
+            password = request.form.get("password")  # unique value
+            # Check if user detail's already exists
+            cursor.execute("SELECT * FROM online_store.users WHERE email = %s and password = %s;", (email, password))
+            existing_user = cursor.fetchone()
+            if existing_user:
+                return render_template("home_page.html")
+            else:
+                return render_template("login.html", error="Wrong Details")
         return render_template("login.html")
 
-        """
                 
-        
+"""
 @app.route("/logout")
 def logout():
     session["username"] = None
     return redirect("/login")
 
+"""
 
-        """

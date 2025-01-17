@@ -56,7 +56,7 @@ p {
 }
 
 /* Set a style for the submit/register button */
-.registration {
+.registration_and_login_button {
   background-color: #04AA7D;
   color: white;
   padding: 5px 5px;
@@ -67,7 +67,15 @@ p {
   opacity: 0.9;
 }
 
-.registerbtn:hover {
+.error {
+  text-align: center;
+  color: red;
+  font-size: 15px;
+  padding: 5px 5px;
+  margin: 8px 0;
+}
+
+.registration:hover {
   opacity:1;
 }
 

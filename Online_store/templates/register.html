@@ -1,12 +1,13 @@
 <html>
    <head>
       <title>Register</title>
-       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register_and_login.css') }}">
    </head>
 
    <body>
-        <h4 class="warning">{{message}}</h4>
-        <form action="/">
+        <!--<h4 class="warning">{{message}}</h4>-->
+
+        <form action="/register" method="post">
           <div class="container">
                 <h1>Register</h1>
                 <p>Please fill in this form to create an account.</p>
@@ -41,8 +42,13 @@
                 </table>
                 <br></b>
                 <!--button type="submit" class="registration">Register</button>-->
-                <input type="submit" class="registration" value="Register">Register</input>
+                <input type="submit" class="registration_and_login_button" value="Register">Register</input>
           </div>
+
+            <!-- Display error message if passed from Flask -->
+            {% if error %}
+            <div class="error"> {{ error }}</div>
+            {% endif %}
 
           <div class="container signin">
                 <p>Already have an account? <a href="/login">Sign in</a>.</p>
