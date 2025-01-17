@@ -46,16 +46,19 @@ if __name__ == '__main__':
     print(printer2.__dict__)
 
     # B.
-    # In the original code:
-    # The singleton is implemented by overriding __new__, ensuring all references point to the same object.
-    # This makes printer1 and printer2 identical and their __dict__ the same.
+    """
+    In the original code:
+    The singleton is implemented by overriding __new__, ensuring all references point to the same object.
+    This makes printer1 and printer2 identical and their __dict__ the same.
 
-    # In the new code:
-    # The singleton state is encapsulated in the __Instance object,
-    # and PrinterQueue serves as a proxy. This keeps printer1
-    # and printer2 as separate objects with shared state and we do not create or initialize
-    # any attributes on the PrinterQueue instance that is why __dict__ is empty for
-    # both
+    In the new code:
+    The singleton state is encapsulated in the __Instance object,
+    and PrinterQueue serves as a proxy. This keeps printer1
+    and printer2 as separate objects with shared state and we do not create or initialize
+    any attributes on the PrinterQueue instance that is why __dict__ is empty for
+    both
+    """
+
 
     # C.
     print(PrinterQueue._instance.__dict__)

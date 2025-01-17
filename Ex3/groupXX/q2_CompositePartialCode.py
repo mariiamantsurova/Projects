@@ -37,7 +37,6 @@ class Package(PackageComponent):
             price += component.get_price()
             return
 
-    # don't know what to do here:
 
     def show_details(self, indent=0):
         print(" " * indent + f"Package: {self.name}")

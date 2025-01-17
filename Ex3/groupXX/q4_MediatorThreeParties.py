@@ -3,7 +3,7 @@ class Mediator:
         self.parties = {}  # A dictionary to hold all parties
 
     def add_party(self, party):
-        """Add a party to the mediator."""
+        # Add a party to the mediator.
         self.parties[party.name] = party
 
     def send_message(self, message, sender_name, receiver_name=None):
