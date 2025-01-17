@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Successful Transaction</title>
+  </head>
+  <body>
+    <h1>Successful Transaction</h1>
+    <h2>order number: <strong>{{order_num}}</strong></h2>
+    <table>
+      <thead>
+        <tr>
+          <th>SKU</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sku, quantity in items.items() %}
+        <tr>
+          <td>{{ sku }}</td>
+          <td>{{ quantity }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

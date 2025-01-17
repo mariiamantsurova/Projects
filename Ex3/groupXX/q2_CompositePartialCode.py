@@ -35,13 +35,14 @@ class Package(PackageComponent):
         price = 0
         for component in self.components:
             price += component.get_price()
+            return
 
     # don't know what to do here:
 
-    # def show_details(self, indent=0):
-    #     for component in self.components:
-    #         print(f"{self.name}, Price:{self.price}")
-
+    def show_details(self, indent=0):
+        print(" " * indent + f"Package: {self.name}")
+        for component in self.components:
+            component.show_details(indent + 4)
 
 
 
