@@ -43,3 +43,8 @@ if __name__ == '__main__':
     country_a = Party("CountryA", mediator)
     country_b = Party("CountryB", mediator)
     country_c = Party("CountryC", mediator)
+
+    country_a.send_message("We propose a ceasefire agreement", country_b.name)
+    country_b.send_message("We agree to the ceasefire. Let's involve CountryC.",country_c.name)
+    country_c.send_message("We support the ceasefire. Let's finalize the terms.")
+    country_a.send_message("Thank you all. Let's sign the agreement and ensure peace.")
