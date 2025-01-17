@@ -12,20 +12,25 @@ def register_and_login(app, cursor, mydb):
             name = request.form.get("name")
             password = request.form.get("password")
             sex = request.form.get("sex")
-            age = request.form.get("age")
+            if sex == "Male":  # in DB: 0 male, 1 female
+                sex = 0
+            else:
+                sex = 1
+            age = int(request.form.get("age"))
             faculty = request.form.get("faculty")
             is_admin = False  # Necessarily a regular user
 
             ###### needs to deal with enetring already existing email becuase its unique value #####
 
             # insert new user info the users table.
-            query = (
-            f"INSERT INTO users(email, username, password, age, sex, faculty, is_admin) VALUES(%s,%s,%s,%s,%s,%s,%s);",
-            (email, name, password, age, sex, faculty, is_admin))
+            query = "INSERT INTO online_store.users(email, username, password, age, sex, faculty, is_admin) VALUES(%s,%s,%s,%s,%s,%s,%s);"
+            values = (email, name, password, age, sex, faculty, is_admin)
             # Execute the query
-            cursor.execute(query)
+            cursor.execute(query, values)
             mydb.commit()
-            return render_template("inventory_update.html", message="Record updated successfully!")
+            cursor.execute("SELECT * FROM users;")
+            print(cursor.fetchall())
+            return render_template("register.html")
 
             # if temp_db.get(email) == password:
             #    session['email'] = email
