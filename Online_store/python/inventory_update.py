@@ -5,13 +5,16 @@ def inventory_update_route(app,cursor,mydb):
     @app.route('/inventory_update/<email>')
     def inventory_update(email):
         # checking if the user is admin
-        cursor.execute("SELECT u.is_admin FROM online_store.users u WHERE u.email = %s", (email,))     
-
+        cursor.execute("SELECT u.is_admin FROM online_store.users u WHERE u.email = %s", (email,))
         is_admin = cursor.fetchone()[0]
-        if is_admin:
-            return render_template("inventory_update.html")
-        else:
+        if not is_admin:
+    ############# raise an error and redirect to the login page ###########
             return redirect('/')
+        # extracting all skus from the clothes table
+        cursor.execute("SELECT sku FROM online_store.clothes")
+        cloth_ids = [row[0] for row in cursor.fetchall()]
+        # Pass cloth_ids to the template
+        return render_template('inventory_update.html', cloth_ids=cloth_ids)
     @app.route('/handle_form', methods=['POST'])
     # def update_table():
     #     # if the manager pressed the update button:
@@ -33,7 +36,7 @@ def inventory_update_route(app,cursor,mydb):
             table_name = 'online_store.clothes'
             cloth_id = int(request.form['cloth_id'])
             quantity_to_update = int(request.form['quantity_to_update'])
-            query = f"UPDATE {table_name} SET available_amount = available_amount + %s WHERE cloth_id = %s"
+            query = f"UPDATE {table_name} SET available_amount = available_amount + %s WHERE sku = %s"
             values = (quantity_to_update, cloth_id)
             # Execute the query
             cursor.execute(query, values)

@@ -33,7 +33,7 @@ VALUES
 (1002, 102, 2),
 (1003, 102, 1),
 (1001, 102, 1),
-(1001, 103, 1); -- 1 Jacket in Jane's orde
+(1001, 103, 1); -- 1 Jacket in Jane's order
 
 
 
