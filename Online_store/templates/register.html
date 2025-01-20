@@ -9,6 +9,9 @@
         <form action="/register" method="post">
           <div class="container">
                 <h1>Register</h1>
+              {% if message %}
+              <p style="color: {% if is_error %} red {% else %} green {% endif %};">{{ message }}</p>
+                {% endif %}
                 <p>Please fill in this form to create an account.</p>
                 <hr>
                 <table>

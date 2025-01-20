@@ -7,6 +7,10 @@
   </head>
   <body>
     <h1>Home</h1>
+        <!-- Display messages -->
+    {% if message %}
+        <p style="color: {% if is_error %} red {% else %} green {% endif %};">{{ message }}</p>
+    {% endif %}
     {% if is_admin %}
     <a href="/inventory_update/{{session['email']}}"> Admin Panel </a>
     {% endif %}

@@ -7,6 +7,11 @@
 <body>
 <div>
     <h1> Inventory Update</h1>
+    <!-- Display messages -->
+    {% if message %}
+        <p style="color: {% if is_error %} red {% else %} green {% endif %};">{{ message }}</p>
+    {% endif %}
+
     <!-- Form for updating inventory -->
     <form action="/handle_form" method="post">
     <table>
@@ -29,7 +34,7 @@
         </tr>
     </table>
     <br/>
-    <input type="submit" name="update" value="Update" class="important_button">
+    <input type="submit" name="form_id" value="Update" class="important_button">
 
 
 </form>
