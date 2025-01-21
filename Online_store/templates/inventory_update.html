@@ -14,6 +14,8 @@
 
     <!-- Form for updating inventory -->
     <form action="/handle_form" method="post">
+        <input type="hidden" name="manager_email" value="{{ email }}" />
+
     <table>
         <tr>
             <td> Select item to update:</td>

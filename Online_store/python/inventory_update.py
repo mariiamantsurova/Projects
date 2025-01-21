@@ -27,7 +27,7 @@ def inventory_update_route(app,cursor,mydb):
             message = f"An unexpected error occurred: {e}"
             return render_template('inventory_update.html', message=message, is_error=True)
 
-    @app.route('/handle_form', methods=['POST'])
+    # @app.route('/handle_form', methods=['POST'])
     # def update_table():
     #     # if the manager pressed the update button:
     #     if request.method == 'POST':
@@ -88,28 +88,37 @@ def inventory_update_route(app,cursor,mydb):
     @app.route('/handle_form', methods=['POST'])
     def handle_form():
         try:
+            manager_email = request.form.get('manager_email')
+            print(f"Manager Email: {manager_email}")  # This will help you check the email value
+
             form_id = request.form.get('form_id')
             if not form_id:
                 return render_template("inventory_update.html", error="Form ID is missing.")
 
             if form_id == "update":
-                # Handle update logic
+                # handle update
                 try:
                     cloth_id = int(request.form['cloth_id'])
                     quantity_to_update = int(request.form['quantity_to_update'])
                 except (TypeError, ValueError, KeyError):
                     return render_template("inventory_update.html", error="Invalid or missing data in update form.")
-
+                # updating amount in clothes table
                 query = f"UPDATE online_store.clothes SET available_amount = available_amount + %s WHERE sku = %s"
                 values = (quantity_to_update, cloth_id)
                 cursor.execute(query, values)
                 if cursor.rowcount == 0:
                     return render_template("inventory_update.html", error="No matching item found to update.")
                 mydb.commit()
+
+                # insert into inventory_update table
+                query2 = f"INSERT INTO online_store.inventory_update(sku, email, quantity) VALUES (%s, %s, %s)"
+                values2 = (cloth_id, manager_email, quantity_to_update)
+                cursor.execute(query2, values2)
+                mydb.commit()
                 return render_template("inventory_update.html", message="Record updated successfully!")
 
             elif form_id == "add":
-                # Handle add logic
+                # handle add
                 try:
                     cloth_id = int(request.form['cloth_id'])
                     cloth_name = request.form['cloth_name']
@@ -119,12 +128,12 @@ def inventory_update_route(app,cursor,mydb):
                 except (TypeError, ValueError, KeyError):
                     return render_template("inventory_update.html", error="Invalid or missing data in add form.")
 
-                query = """
+                query3 = """
                     INSERT INTO online_store.new_items (cloth_id, cloth_name, cloth_price, available_amount, img_path)
                     VALUES (%s, %s, %s, %s, %s)
                 """
-                values = (cloth_id, cloth_name, cloth_price, available_amount, img_path)
-                cursor.execute(query, values)
+                values3 = (cloth_id, cloth_name, cloth_price, available_amount, img_path)
+                cursor.execute(query3, values3)
                 mydb.commit()
                 return render_template("inventory_update.html", message="New item added successfully!")
         except Exception as e:
@@ -132,4 +141,4 @@ def inventory_update_route(app,cursor,mydb):
             return render_template("inventory_update.html", error=f"An error occurred: {e}")
 
         # If the request method is not POST, redirect back to the inventory update page
-        return redirect(f'/inventory_update/{request.form.get("manager_email")}')
+        return redirect(f'/inventory_update/{manager_email}')
