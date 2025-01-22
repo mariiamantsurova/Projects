@@ -33,7 +33,8 @@ def register_and_login(app, cursor, mydb):
                 values = (email, name, password, age, sex, faculty, is_admin)
                 cursor.execute(query, values)
                 mydb.commit()
-                return render_template("home_page.html")
+                session['email'] = email
+                return redirect("/")
         return render_template("register.html")
 
     @app.route("/login", methods=["POST", "GET"])
@@ -45,7 +46,8 @@ def register_and_login(app, cursor, mydb):
             cursor.execute("SELECT * FROM online_store.users WHERE email = %s and password = %s;", (email, password))
             existing_user = cursor.fetchone()
             if existing_user:
-                return render_template("home_page.html")
+                session['email'] = email
+                return redirect("/")
             else:
                 return render_template("login.html", error="Wrong Details")
         return render_template("login.html")

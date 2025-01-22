@@ -1,12 +1,12 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, redirect
 import random
     
 
 def home_route(app,cursor,mydb):
     @app.route('/', methods=['GET', 'POST'])
     def home():
-        # if 'email' not in session:
-        # return redirect('/login')
+        if 'email' not in session:
+            return redirect('/login')
         if request.method == 'POST':
             items = dict(request.form)
 
@@ -29,7 +29,7 @@ def home_route(app,cursor,mydb):
 
             return render_template("transaction.html", order_num=order_num, items=modified_items)
         else:
-            session['email'] = "jane.doe@example.com"
+            #session['email'] = "jane.doe@example.com"
          
             cursor.execute("SELECT u.is_admin FROM online_store.users u WHERE email = %s",(session['email'],))    
             is_admin = cursor.fetchone()[0]
