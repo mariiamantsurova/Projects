@@ -14,7 +14,7 @@
 
     <!-- Form for updating inventory -->
     <form action="/handle_form" method="post">
-        <input type="hidden" name="manager_email" value="{{ email }}" />
+    <input type="hidden" name="manager_email" value="{{ email }}" />
 
     <table>
         <tr>
@@ -31,7 +31,7 @@
         <tr>
             <td>Select quantity:</td>
             <td>
-                <input type="number" name ="quantity_to_update" required>
+                <input type="number" name ="quantity_to_update" required min="1">
             </td>
         </tr>
     </table>
@@ -41,12 +41,12 @@
 
 </form>
         <!-- Display success or error messages -->
-    {% if message %}
-        <p style="color: green;">{{ message }}</p>
-    {% endif %}
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
+<!--    {% if message %}-->
+<!--        <p style="color: green;">{{ message }}</p>-->
+<!--    {% endif %}-->
+<!--    {% if error %}-->
+<!--        <p style="color: red;">{{ error }}</p>-->
+<!--    {% endif %}-->
 </div>
 
 
@@ -54,6 +54,7 @@
     <h1> Add New Item</h1>
     <!-- Form for Adding a new item -->
     <form action="/handle_form" method="post">
+        <input type="hidden" name="manager_email" value="{{ email }}" />
     <table>
         <tr>
             <h5> please fill in the details of the item:</h5>
@@ -71,14 +72,24 @@
         <tr>
             <td>Cloth Price:</td>
             <td>
-                <input type="number" name ="cloth_price" required>
+                <input type="number" name ="cloth_price" required min="1">
             </td>
         </tr>
         <tr>
             <td>Available Amount:</td>
             <td>
-                <input type="number" name ="available_amount" required>
+                <input type="number" name ="available_amount" required min="1">
             </td>
+        </tr>
+        <tr>
+            <td> Is promoted?</td>
+            <td>
+                <input type="radio" name="is_promoted" value="1" required >Yes</br>
+            </td>
+            <td>
+                <input type="radio" name="is_promoted" value="0" required >No</br>
+            </td>
+
         </tr>
         <tr>
             <td>Image Link:</td>
@@ -92,13 +103,6 @@
 
 
 </form>
-        <!-- Display success or error messages -->
-    {% if message %}
-        <p style="color: green;">{{ message }}</p>
-    {% endif %}
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
 </div>
 
 </body>
