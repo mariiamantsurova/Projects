@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Inventory Update</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/inventory_page.css">
 </head>
 <body>
-<div>
+<div class="card-div">
     <h1> Inventory Update</h1>
     <!-- Display messages -->
     {% if message %}
@@ -40,17 +41,10 @@
 
 
 </form>
-        <!-- Display success or error messages -->
-<!--    {% if message %}-->
-<!--        <p style="color: green;">{{ message }}</p>-->
-<!--    {% endif %}-->
-<!--    {% if error %}-->
-<!--        <p style="color: red;">{{ error }}</p>-->
-<!--    {% endif %}-->
 </div>
 
 
-<div>
+<div class="card-div">
     <h1> Add New Item</h1>
     <!-- Form for Adding a new item -->
     <form action="/handle_form" method="post">
