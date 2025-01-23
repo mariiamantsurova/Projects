@@ -1,80 +1,80 @@
-
-body{
-    font-family: Arial, sans-serif;
-    text-align: center;
-    justify-content: center; /* Horizontally centers the table */
-    align-items: center; /* Vertically centers the table */
-    height: 100vh; /* Full viewport height */
-    margin: 0; /* Removes default margin */
-    padding: 0; /* Removes default padding */;
+body {
+  text-align: center;
+  justify-content: center; /* Horizontally centers the table */
+  align-items: center; /* Vertically centers the table */
+  height: 100vh; /* Full viewport height */
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
 }
-.page_header{
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    padding: 20px; /* Add padding inside the card */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the card */
-    margin: 20px auto; /* Center the card on the page */
+.page_header {
+  background-color: #f9f9f9;
+  padding: 20px; /* Add padding inside the card */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the card */
+  margin: 20px auto; /* Center the card on the page */
 }
 
 .card-div {
-    background-color: #f1f1f1; /* light gray */
-    color: black;
-    width: 400px; /* Define the width of the card */
-    padding: 20px; /* Add padding inside the card */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the card */
-    margin: 20px auto; /* Center the card on the page */
+  background-color: #f1f1f1; /* light gray */
+  color: black;
+  width: 400px; /* Define the width of the card */
+  padding: 20px; /* Add padding inside the card */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the card */
+  margin: 20px auto; /* Center the card on the page */
 }
 
-.h1{ text-align: center;
-    color: #0E3386; /* cubes blue text*/
-    font-family: Arial, sans-serif;}
+.h1 {
+  text-align: center;
+  color: #0e3386; /* cubes blue text*/
+}
 
 .table {
-    font-family: Arial, sans-serif;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    border-radius: 10px; /* Rounded corners */
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-radius: 10px; /* Rounded corners */
 }
-.p{ color: #7f8c8d}
-.labels{ text-align: left}
-
-
-input, select {
-    border-radius: 5px; /* Rounds the corners of the input fields */
-    padding: 3px; /* Add padding to the input fields */
-    border: 1px solid #034694 ; /* chelsea blue border */
-    font-size: 15px; /* Text size */
-    width: 100%; /* Make inputs fill the available width */
-    transition: border-color 0.3s ease; /* Smooth transition for border color */
+.p {
+  color: #7f8c8d;
+}
+.labels {
+  text-align: left;
 }
 
-input:focus, select:focus {
-    border-color: #034694; /* Change border color on focus */
-    outline: none; /* Remove default outline */
+input,
+select {
+  border-radius: 5px; /* Rounds the corners of the input fields */
+  padding: 3px; /* Add padding to the input fields */
+  border: 1px solid #034694; /* chelsea blue border */
+  font-size: 15px; /* Text size */
+  width: 100%; /* Make inputs fill the available width */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
 }
 
-.important_button{
-                font-family: Arial, sans-serif;
-                color: #034694; /*chelsea blue */
-                background-color: white;
-                border: 1px solid #034694;
-                border-radius: 5px; /* Rounded corners */
-                padding: 5px 15px; /* Increase padding for a larger button */
-                transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
-                width: auto; /* Set width to auto to prevent stretching */
+input:focus,
+select:focus {
+  border-color: #034694; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
 
-
+.important_button {
+  color: #034694; /*chelsea blue */
+  background-color: white;
+  border: 1px solid #034694;
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px 15px; /* Increase padding for a larger button */
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease; /* Smooth transition */
+  width: auto; /* Set width to auto to prevent stretching */
 }
 .important_button:hover {
-    background-color: #034694; /* chelsea blue background on hover */
-    color: white; /* white text on hover */
-    border-color: #034694;
-    }
+  background-color: #034694; /* chelsea blue background on hover */
+  color: white; /* white text on hover */
+  border-color: #034694;
+}
 .important_button:active {
-    background-color: #66A9FF; /* Slightly darker blue when clicked */
-    color: white; /* White text when clicked */
-    border-color: #4A90E2; /* Darker blue border when clicked */
+  background-color: #66a9ff; /* Slightly darker blue when clicked */
+  color: white; /* White text when clicked */
+  border-color: #4a90e2; /* Darker blue border when clicked */
 }

@@ -1,4 +1,6 @@
-* {box-sizing: border-box}
+* {
+  box-sizing: border-box;
+}
 
 /* Add padding to containers */
 .container {
@@ -7,50 +9,58 @@
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password], [type=number] , [type=email]{
-    width: 100%;
-    padding: 6px 8px;
-    margin-bottom: 2px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 12px;
-    box-sizing: border-box;
-    text-align: center;
+input[type="text"],
+input[type="password"],
+[type="number"],
+[type="email"] {
+  width: 100%;
+  padding: 6px 8px;
+  margin-bottom: 2px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 12px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
-input[type=text]:focus, input[type=password]:focus, [type=number]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus,
+[type="number"]:focus {
   background-color: #ddd;
   outline: none;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    font-size: 1px;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-
+  font-size: 1px;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 /* Styling the form container */
 .container {
-    background: rgba(255, 255, 255, 0.8); /* White background with slight transparency */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+  background: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* White background with slight transparency */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 h1 {
-    color: #034694;
-    font-size: 24px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 30px;
-    align-items: center;
+  color: #034694;
+  font-size: 24px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 30px;
+  align-items: center;
 }
 
 /* Overwrite default styles of hr */
@@ -60,8 +70,8 @@ hr {
 }
 
 p {
-    font-size: 15px;
-    color: #7f8c8d;
+  font-size: 15px;
+  color: #7f8c8d;
 }
 
 /* Set a style for the submit/register button */
@@ -85,7 +95,7 @@ p {
 }
 
 .registration:hover {
-  opacity:1;
+  opacity: 1;
 }
 
 /* Add a blue text color to links */
@@ -100,19 +110,19 @@ a {
 }
 
 table {
-  border: 1px ;
+  border: 1px;
   vertical-align: center;
   text-align: left;
-  width:100%;
+  width: 100%;
 }
-th, tr{
-    width:40%;
-    border-bottom: 1px solid #ddd;
-    padding: 20px 20px;
+th,
+tr {
+  width: 40%;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 20px;
 }
-td{
-    width:60%;
-    border-bottom: 1px solid #ddd;
-    padding: 20px 20px;
+td {
+  width: 60%;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 20px;
 }
-

@@ -1,85 +1,75 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 10%;
 }
 
 h1 {
-    color: #034694;
-    font-size: 24px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 30px;
-    align-items: center;
+  color: #034694;
+  font-weight: bold;
+  font-size: 30px;
 }
 
-/* Container for the items */
 .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Flexbox container for items */
 .items-container {
-    display: flex;
-    flex-wrap: wrap;  /* Allow wrapping for small screens */
-    gap: 20px;  /* Add space between items */
-    justify-content: space-between;  /* Evenly space items */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
 }
 
-/* Individual item container */
 .item-container {
-    background-color: #E7ECF0;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 15px;
-    width: calc(33.333% - 20px);  /* 3 items per row, with space between */
-    box-sizing: border-box;
-    text-align: center;
-    color: #034694;
+  background-color: #e7ecf0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  width: calc(33.333% - 20px);
+  box-sizing: border-box;
+  text-align: center;
+  color: #034694;
 }
 
-
-/* Image inside the item */
 .item-container img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
-/* Submit button styling */
 .submit {
-    margin-top: 20px;
-    text-align: center;
+  position: fixed;
+  bottom: 5px;
+  text-align: center;
 }
 
 .buy_button {
-    padding: 10px 20px;
-    background-color: #034694;;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+  padding: 10px 20px;
+  background-color: #034694;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .buy_button:hover {
-    background-color: #4E6151;
+  background-color: #4e6151;
 }
 
 /* Styling the admin panel link */
-.AdminPanel {
-    margin-bottom: 20px;
+
+.container-panel a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 18px;
 }
 
-.AdminPanel a {
-    color: #007BFF;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.AdminPanel a:hover {
-    text-decoration: underline;
+.container-panel a:hover {
+  text-decoration: underline;
 }

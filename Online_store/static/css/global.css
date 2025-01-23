@@ -1,0 +1,11 @@
+* {
+  font-family: "Raleway", serif;
+}
+
+.success-text {
+  color: green;
+}
+
+.error-text {
+  color: red;
+}
