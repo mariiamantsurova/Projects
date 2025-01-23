@@ -1,5 +1,6 @@
+
 body{
-    font-family: 'Georgia', serif;
+    font-family: Arial, sans-serif;
     text-align: center;
     justify-content: center; /* Horizontally centers the table */
     align-items: center; /* Vertically centers the table */
@@ -7,46 +8,60 @@ body{
     margin: 0; /* Removes default margin */
     padding: 0; /* Removes default padding */;
 }
-.card-div {
-    background-color: #B3D9FF; /* Baby light blue */
-    width: 400px; /* Define the width of the card */
+.page_header{
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
     padding: 20px; /* Add padding inside the card */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the card */
     margin: 20px auto; /* Center the card on the page */
 }
 
-h1{ text-align: center;
-    font-family: 'Georgia', serif}
+.card-div {
+    background-color: #f1f1f1; /* light gray */
+    color: black;
+    width: 400px; /* Define the width of the card */
+    padding: 20px; /* Add padding inside the card */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the card */
+    margin: 20px auto; /* Center the card on the page */
+}
+
+.h1{ text-align: center;
+    color: #0E3386; /* cubes blue text*/
+    font-family: Arial, sans-serif;}
 
 .table {
-    font-family: 'Georgia', serif;
+    font-family: Arial, sans-serif;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
     border-radius: 10px; /* Rounded corners */
 }
+.p{ color: #7f8c8d}
+.labels{ text-align: left}
 
 
 input, select {
-    border-radius: 10px; /* Rounds the corners of the input fields */
+    border-radius: 5px; /* Rounds the corners of the input fields */
     padding: 3px; /* Add padding to the input fields */
-    border: 1px solid #2196F3; /* Blue border */
+    border: 1px solid #034694 ; /* chelsea blue border */
     font-size: 15px; /* Text size */
     width: 100%; /* Make inputs fill the available width */
     transition: border-color 0.3s ease; /* Smooth transition for border color */
 }
 
 input:focus, select:focus {
-    border-color: #4A90E2; /* Change border color on focus */
+    border-color: #034694; /* Change border color on focus */
     outline: none; /* Remove default outline */
 }
 
 .important_button{
-                font-family:  'Georgia', serif;
+                font-family: Arial, sans-serif;
+                color: #034694; /*chelsea blue */
                 background-color: white;
-                border: 1px solid #2196F3;
-                border-radius: 15px; /* Rounded corners */
+                border: 1px solid #034694;
+                border-radius: 5px; /* Rounded corners */
                 padding: 5px 15px; /* Increase padding for a larger button */
                 transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
                 width: auto; /* Set width to auto to prevent stretching */
@@ -54,9 +69,9 @@ input:focus, select:focus {
 
 }
 .important_button:hover {
-    background-color: #B3D9FF; /* Light blue background on hover */
-    color: #1E3A8A; /* Dark blue text on hover */
-    border-color: #4A90E2;
+    background-color: #034694; /* chelsea blue background on hover */
+    color: white; /* white text on hover */
+    border-color: #034694;
     }
 .important_button:active {
     background-color: #66A9FF; /* Slightly darker blue when clicked */

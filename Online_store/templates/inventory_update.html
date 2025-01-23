@@ -2,12 +2,16 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Inventory Update</title>
+    <title>Admins page</title>
         <link rel="stylesheet" type="text/css" href="/static/css/inventory_page.css">
 </head>
 <body>
+<div class="page_header">
+    <img src="/static/image/logo.png" width="200" height="200">
+</div>
+<h3>hello username what would you like to do today?</h3>
 <div class="card-div">
-    <h1> Inventory Update</h1>
+    <h1 class="h1"> Inventory Update</h1>
     <!-- Display messages -->
     {% if message %}
         <p style="color: {% if is_error %} red {% else %} green {% endif %};">{{ message }}</p>
@@ -19,7 +23,8 @@
 
     <table>
         <tr>
-            <td> Select item to update:</td>
+            <p class="p"> please fill in the update details:</p>
+            <th class = "labels"> Select item to update:</th>
             <td>
                 <!--extracting cloth_ids from the DB -->
                 <select name="cloth_id" required>
@@ -30,7 +35,7 @@
             </td>
         </tr>
         <tr>
-            <td>Select quantity:</td>
+            <th class = "labels">Select quantity:</th>
             <td>
                 <input type="number" name ="quantity_to_update" required min="1">
             </td>
@@ -45,38 +50,38 @@
 
 
 <div class="card-div">
-    <h1> Add New Item</h1>
+    <h1 class="h1"> Add New Item</h1>
     <!-- Form for Adding a new item -->
     <form action="/handle_form" method="post">
         <input type="hidden" name="manager_email" value="{{ email }}" />
     <table>
         <tr>
-            <h5> please fill in the details of the item:</h5>
-            <td>Cloth id:</td>
+            <p class="p"> please fill in the details of the new item:</p>
+            <th class = "labels">Cloth id:</th>
             <td>
                 <input type="text" name="cloth_id" required>
             </td>
         </tr>
         <tr>
-            <td>Cloth Name:</td>
+            <th class = "labels">Cloth Name:</th>
             <td>
                 <input type="text" name ="cloth_name" required>
             </td>
         </tr>
         <tr>
-            <td>Cloth Price:</td>
+            <th class = "labels">Cloth Price:</th>
             <td>
                 <input type="number" name ="cloth_price" required min="1">
             </td>
         </tr>
         <tr>
-            <td>Available Amount:</td>
+            <th class = "labels">Available Amount:</th>
             <td>
                 <input type="number" name ="available_amount" required min="1">
             </td>
         </tr>
         <tr>
-            <td> Is promoted?</td>
+            <th class = "labels">Is promoted?</th>
             <td>
                 <input type="radio" name="is_promoted" value="1" required >Yes</br>
             </td>
@@ -86,7 +91,7 @@
 
         </tr>
         <tr>
-            <td>Image Link:</td>
+            <th class = "labels">Image Link:</th>
             <td>
                 <input type="text" name ="img_path" required>
             </td>
