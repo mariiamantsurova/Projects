@@ -7,7 +7,7 @@
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password], [type=number] {
+input[type=text], input[type=password], [type=number] , [type=email]{
     width: 100%;
     padding: 6px 8px;
     margin-bottom: 2px;
@@ -34,9 +34,18 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+
+}
+
+/* Styling the form container */
+.container {
+    background: rgba(255, 255, 255, 0.8); /* White background with slight transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
 }
 h1 {
-    color: #2c3e57;
+    color: #034694;
     font-size: 24px;
     margin-bottom: 5px;
     font-weight: bold;
@@ -57,7 +66,7 @@ p {
 
 /* Set a style for the submit/register button */
 .registration_and_login_button {
-  background-color: #04AA7D;
+  background-color: #034694;
   color: white;
   padding: 5px 5px;
   margin: 8px 0;
@@ -106,3 +115,4 @@ td{
     border-bottom: 1px solid #ddd;
     padding: 20px 20px;
 }
+
