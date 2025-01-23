@@ -10,13 +10,14 @@
     <img src="/static/image/logo.png" width="200" height="200">
 </div>
 <h3>hello username what would you like to do today?</h3>
-<div class="card-div">
-    <h1 class="h1"> Inventory Update</h1>
-    <!-- Display messages -->
+<div>
+        <!-- Display messages -->
     {% if message %}
         <p style="color: {% if is_error %} red {% else %} green {% endif %};">{{ message }}</p>
     {% endif %}
-
+</div>
+<div class="card-div">
+    <h1 class="h1"> Inventory Update</h1>
     <!-- Form for updating inventory -->
     <form action="/handle_form" method="post">
     <input type="hidden" name="manager_email" value="{{ email }}" />
