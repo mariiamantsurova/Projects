@@ -1,31 +1,25 @@
-from flask import Flask, render_template, request, session, redirect, flash
-from datetime import datetime
+from flask import Flask, render_template, request, session, redirect
 
 def inventory_update_route(app,cursor,mydb):
     @app.route('/inventory_update/<email>')
     def inventory_update(email):
         try:
             # # First, check if the user is logged in by verifying the session email
-            # if 'user_email' not in session or session['user_email'] != email:
-            #     message = "You are not authorized to view this page. Redirecting to homepage."
-            #     return render_template('home_page.html', message=message, is_error=True)
 
             # Check if the user exists and is an admin
             cursor.execute("SELECT u.is_admin FROM online_store.users u WHERE u.email = %s", (email,))
             result = cursor.fetchone()
             # if the user doesn't exist
             if result is None:
-                message = "User not found. Please register."
-                return render_template('register.html', message=message, is_error=True)
-
-            # If the session and email match, render the inventory page
-            return render_template('inventory_update.html', email=email)
+                error = "User not found."
+                return render_template('error.html', error=error)
 
             # checking if the user is an admin
             is_admin = result[0]
-            if not is_admin:
+            if not is_admin or session['email']!= email:
                 message = "Access denied. Admin privileges required."
-                return render_template('home_page.html', message=message, is_error=True)
+                return render_template('error.html', error=message)
+
             # if the user is an admin:
             # extracting all SKUs from the clothes table
             cursor.execute("SELECT sku FROM online_store.clothes")

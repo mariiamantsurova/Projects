@@ -1,4 +1,3 @@
-
 /* Body Styling */
 body {
   text-align: center;
@@ -22,22 +21,22 @@ body {
 }
 
 .back-link {
-  position: fixed;  /* Fixes the link's position on the screen */
-  left: 20px;       /* Position the link 20px from the left side of the page */
-  top: 20px;        /* Position the link 20px from the top */
-  font-size: 16px;  /* Font size */
-  color: #034694;   /* Link color */
-  text-decoration: none;  /* Removes underline from the link */
-  background-color: #f9f9f9;  /* Background color */
-  padding: 10px 20px;  /* Padding around the link */
-  border-radius: 5px;  /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
-  transition: background-color 0.3s ease, color 0.3s ease;  /* Smooth transitions */
+  position: fixed; /* Fixes the link's position on the screen */
+  left: 20px; /* Position the link 20px from the left side of the page */
+  top: 20px; /* Position the link 20px from the top */
+  font-size: 16px; /* Font size */
+  color: #034694; /* Link color */
+  text-decoration: none; /* Removes underline from the link */
+  background-color: #f9f9f9; /* Background color */
+  padding: 10px 20px; /* Padding around the link */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
 }
 
 .back-link:hover {
-  background-color: #034694;  /* Background color on hover */
-  color: white;  /* Text color on hover */
+  background-color: #034694; /* Background color on hover */
+  color: white; /* Text color on hover */
 }
 /* Card Style */
 .card-div {
@@ -53,13 +52,11 @@ body {
   justify-content: center; /* Vertically center the content */
   align-items: center; /* Horizontally center the content */
   height: auto; /* Adjust height based on content */
-
 }
 
-
-
 /* Heading Styling */
-h1, h3 {
+h1,
+h3 {
   text-align: center;
   color: #0e3386;
 }
@@ -69,7 +66,6 @@ h1, h3 {
   margin-right: auto;
   width: 100%;
   border-radius: 10px; /* Rounded corners */
-
 }
 .p {
   color: #7f8c8d;
@@ -85,7 +81,8 @@ td {
   gap: 10px; /* Add space between the radio buttons */
 }
 
-input, select {
+input,
+select {
   width: 100%;
   padding: 6px 8px;
   border: 1px solid #034694;
@@ -96,7 +93,8 @@ input, select {
   margin-bottom: 10px;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
   border-color: #034694;
   outline: none;
 }
@@ -110,7 +108,8 @@ input:focus, select:focus {
   border-radius: 5px;
   width: auto;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .important_button:hover {
@@ -127,29 +126,38 @@ input:focus, select:focus {
 
 /* Common style for the message */
 .message {
-    position: fixed;               /* Fixed position to stay on the screen */
-    top: 0;                       /* Center vertically */
-    left: 50%;                     /* Center horizontally */
-    transform: translate(-50%, -50%); /* Ensure it's truly centered */
-    padding: 20px;
-    border-radius: 5px;
-    font-size: 18px;
-    width: 80%;                    /* Adjust width */
-    text-align: center;            /* Center the text */
-    z-index: 9999;                 /* Ensure it stays on top of other content */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow around the message */
+  position: fixed; /* Fixed position to stay on the screen */
+  top: 10%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Ensure it's truly centered */
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  width: 80%; /* Adjust width */
+  text-align: center; /* Center the text */
+  z-index: 9999; /* Ensure it stays on top of other content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow around the message */
 }
 
 /* Style for error messages */
 .error {
-    background-color: #f8d7da;     /* Light red background */
-    color: #721c24;                /* Dark red text */
-    border: 1px solid #f5c6cb;     /* Red border */
+  background-color: #f8d7da; /* Light red background */
+  color: #721c24; /* Dark red text */
+  border: 1px solid #f5c6cb; /* Red border */
 }
 
 /* Style for success messages */
 .success {
-    background-color: #d4edda;     /* Light green background */
-    color: #155724;                /* Dark green text */
-    border: 1px solid #c3e6cb;     /* Green border */
+  background-color: #d4edda; /* Light green background */
+  color: #155724; /* Dark green text */
+  border: 1px solid #c3e6cb; /* Green border */
+}
+
+.success a,
+.error a {
+  text-decoration: none;
+  color: #7f8c8d;
+  position: absolute;
+  top: 0;
+  right: 10px;
 }

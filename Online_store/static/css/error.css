@@ -28,3 +28,9 @@ h2 {
   top: 10px;
   font-size: 80px;
 }
+
+p {
+  width: 80%;
+  color: rgb(241, 116, 116);
+  text-align: center;
+}

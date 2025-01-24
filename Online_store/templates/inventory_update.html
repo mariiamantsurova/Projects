@@ -24,6 +24,7 @@
         {% if message %}
             <div class="message {% if is_error %}error{% else %}success{% endif %}">
                 <p>{{ message }}</p>
+                <a href="/inventory_update/{{session['email']}}">x</a>
             </div>
         {% endif %}
     </div>

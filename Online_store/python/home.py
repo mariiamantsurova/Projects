@@ -5,27 +5,31 @@ import random
 def home_route(app,cursor,mydb):
     @app.route('/', methods=['GET', 'POST'])
     def home():
-        if 'email' not in session:
-            return redirect('/login')
-        if request.method == 'POST':
-            items = dict(request.form)
+        try:
+            if 'email' not in session:
+                return redirect('/login')
+            if request.method == 'POST':
+                items = dict(request.form)
 
-            modified_items = {}
-            for sku,quantity in items.items():
-                if int(quantity) > 0:
-                    modified_items[int(sku)] = int(quantity)
-            if modified_items:
-                order_num = random.randint(100000, 999999)
-                cursor.execute("""INSERT INTO online_store.transactions (order_num, date, hour, email) VALUES (%s, CURDATE(), CURTIME(), %s)""",(order_num, session['email'])
-                    )               
-                mydb.commit()
-                for sku, quantity in modified_items.items():
-                    cursor.execute("""INSERT INTO clothes_in_transaction (order_num, sku, amount) VALUES (%s, %s, %s)""",  (order_num, sku, quantity),)
-                    cursor.execute("UPDATE clothes SET available_amount = available_amount - %s WHERE sku = %s", (quantity, sku))
-                mydb.commit()
-                return render_template("transaction.html", order_num=order_num, items=modified_items)
-            else:
-                return render_template("home_page.html", error="No item was added to the cart")
+                modified_items = {}
+                for sku,quantity in items.items():
+                    if int(quantity) > 0:
+                        modified_items[int(sku)] = int(quantity)
+                if modified_items:
+                    order_num = random.randint(100000, 999999)
+                    cursor.execute("""INSERT INTO online_store.transactions (order_num, date, hour, email) VALUES (%s, CURDATE(), CURTIME(), %s)""",(order_num, session['email'])
+                        )               
+                    mydb.commit()
+                    for sku, quantity in modified_items.items():
+                        cursor.execute("""INSERT INTO clothes_in_transaction (order_num, sku, amount) VALUES (%s, %s, %s)""",  (order_num, sku, quantity),)
+                        cursor.execute("UPDATE clothes SET available_amount = available_amount - %s WHERE sku = %s", (quantity, sku))
+                    mydb.commit()
+                    return render_template("transaction.html", order_num=order_num, items=modified_items)
+                else:
+                    return render_template("error.html", error="No item was added to the cart")
+        except Exception as e:
+            error = f"error: {e}"
+            return render_template('error.html', error=error)
             
         else:
          
