@@ -22,13 +22,20 @@
     <title>Home</title>
   </head>
   <body>
+    {% if error %}
+    <div class="error-container">
+      <p class="error-text">{{error}}</p>
+      <a href="/" class="home-btn">Go back</a>
+    </div>
+    {% else %}
     <header>
       <img
         src="{{url_for('static' , filename='image/logo.png')}}"
         alt="logo"
         id="logo"
       />
-      <h1 class="title">Home</h1>
+      <h1 class="title">Home .</h1>
+      <img src="../static/image/decor.png" id="decor" alt="" />
       <div class="container-panel">
         {% if message %}
         <p class="{% if is_error %}error-text{% else %}success-text{% endif %}">
@@ -49,7 +56,13 @@
             <h2>{{item[1]}}</h2>
             <div class="quantity">
               <label for="quantity_{{ item[0] }}">Quantity:</label>
-              <input name="{{item[0]}}" type="number" min="0" value="0" />
+              <input
+                name="{{item[0]}}"
+                type="number"
+                min="0"
+                max="{{item[3]}}"
+                value="0"
+              />
             </div>
             <div class="details">
               <span>Price: {{item[2]}} ₪</span>
@@ -63,5 +76,6 @@
         </div>
       </div>
     </form>
+    {% endif %}
   </body>
 </html>

@@ -35,7 +35,11 @@ def register_and_login(app, cursor, mydb):
                 mydb.commit()
                 session['email'] = email
                 return redirect("/")
-        return render_template("register.html")
+        else:
+            if "email" not in session or not session["email"]:
+                return render_template("register.html")
+            else:
+                return redirect('/')
 
     @app.route("/login", methods=["POST", "GET"])
     def login():
@@ -50,14 +54,10 @@ def register_and_login(app, cursor, mydb):
                 return redirect("/")
             else:
                 return render_template("login.html", error="Wrong Details")
-        return render_template("login.html")
+        else:
+            if "email" not in session or not session["email"]:
+                return render_template("login.html")
+            else:
+                return redirect('/')
 
-                
-"""
-@app.route("/logout")
-def logout():
-    session["username"] = None
-    return redirect("/login")
-
-"""
 
