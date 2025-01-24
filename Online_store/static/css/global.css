@@ -1,11 +1,46 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 * {
   font-family: "Raleway", serif;
 }
 
+#logo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: auto;
+}
+
+.title {
+  font-family: "Playwrite RO", serif;
+}
 .success-text {
   color: green;
 }
 
 .error-text {
   color: red;
+}
+
+.home-btn {
+  margin-top: 10px;
+  text-decoration: none;
+  padding: 10px 30px;
+  background-color: #034694;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.home-btn:hover {
+  background-color: #1a69c3;
 }

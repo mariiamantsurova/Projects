@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+h1 {
+  color: #034694;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+h2 {
+  position: absolute;
+  color: #034694;
+  top: 10px;
+  font-size: 80px;
+}

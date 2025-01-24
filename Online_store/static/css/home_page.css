@@ -1,8 +1,14 @@
+body {
+  display: grid;
+  flex-direction: column;
+}
+
 header {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 10%;
+
+  margin-bottom: 10px;
 }
 
 h1 {
@@ -10,36 +16,83 @@ h1 {
   font-weight: bold;
   font-size: 30px;
 }
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .items-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-  justify-content: space-between;
 }
 
 .item-container {
-  background-color: #e7ecf0;
-  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   border-radius: 10px;
   padding: 15px;
-  width: calc(33.333% - 20px);
+  width: calc(25% - 10px);
   box-sizing: border-box;
   text-align: center;
   color: #034694;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #d3d3d3;
 }
 
 .item-container img {
+  max-width: 250px;
   width: 100%;
   height: auto;
   border-radius: 5px;
   margin-bottom: 10px;
+}
+
+.item-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  align-items: center;
+  width: 100%;
+  margin-top: 15px;
+  border-top: 1px solid #d3d3d3;
+}
+.description h2 {
+  grid-column: 1 / -1;
+}
+
+.description .quantity {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  gap: 5px;
+}
+
+.description .quantity input {
+  width: 70px;
+  padding: 5px;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1rem;
+  box-sizing: border-box;
+  color: #034694;
+}
+
+.description .details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: right;
+}
+
+.description .details span {
+  font-size: 0.9rem;
 }
 
 .submit {
@@ -49,20 +102,19 @@ h1 {
 }
 
 .buy_button {
-  padding: 10px 20px;
+  padding: 10px 30px;
   background-color: #034694;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  box-shadow: 0 0px 20px rgba(33, 33, 33, 0.8);
 }
 
 .buy_button:hover {
-  background-color: #4e6151;
+  background-color: #1a69c3;
 }
-
-/* Styling the admin panel link */
 
 .container-panel a {
   color: #007bff;
@@ -72,4 +124,31 @@ h1 {
 
 .container-panel a:hover {
   text-decoration: underline;
+}
+
+.transaction-container {
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 50%;
+  width: 50%;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+}
+
+.transaction-container table {
+  width: 80%;
+  border: 1px solid #d3d3d3;
+  border-collapse: collapse;
+  margin-top: 20px;
+  text-align: center;
+}
+.transaction-container tbody td,
+th {
+  padding: 10px;
+  border: 1px solid #d3d3d3;
 }

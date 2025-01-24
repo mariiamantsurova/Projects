@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playwrite+RO&family=Raleway:wght@100..900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -23,8 +23,12 @@
   </head>
   <body>
     <header>
-      <h1>Home</h1>
-      <!-- Display messages -->
+      <img
+        src="{{url_for('static' , filename='image/logo.png')}}"
+        alt="logo"
+        id="logo"
+      />
+      <h1 class="title">Home</h1>
       <div class="container-panel">
         {% if message %}
         <p class="{% if is_error %}error-text{% else %}success-text{% endif %}">
@@ -41,11 +45,17 @@
         {%for item in clothes%}
         <div class="item-container">
           <img src="{{item[5]}}" alt="item-{{item[0]}}" />
-          <h2>{{item[1]}}</h2>
-          <span>Price: {{item[2]}}</span>
-          <span>Available: {{item[3]}}</span>
-          <label for="quantity_{{ item[0] }}">Quantity:</label>
-          <input name="{{item[0]}}" type="number" min="0" value="0" />
+          <div class="description">
+            <h2>{{item[1]}}</h2>
+            <div class="quantity">
+              <label for="quantity_{{ item[0] }}">Quantity:</label>
+              <input name="{{item[0]}}" type="number" min="0" value="0" />
+            </div>
+            <div class="details">
+              <span>Price: {{item[2]}} ₪</span>
+              <span>Available: {{item[3]}}</span>
+            </div>
+          </div>
         </div>
         {% endfor %}
         <div class="submit">

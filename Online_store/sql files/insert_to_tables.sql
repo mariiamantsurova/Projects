@@ -14,24 +14,21 @@ VALUES
 -- Insert into clothes
 INSERT INTO online_store.clothes (sku, name, price, available_amount, is_promoted, img_path)
 VALUES
-(101, 'T-Shirt', 25, 50, TRUE, '/images/tshirt.jpg'),
-(102, 'Jeans', 40, 30, FALSE, '/images/jeans.jpg'),
-(103, 'Jacket', 60, 20, TRUE, '/images/jacket.jpg'),
-(104, 'Dress', 25, 50, TRUE, '/images/Dress.jpg'),
-(105, 'Blue T-Shirt', 40, 30, FALSE, '/images/BlueT-Shirt.jpg'),
-(106, 'Denim Jacket', 60, 20, TRUE, '/images/DenimJacket.jpg');
+(101, 'T-Shirt', 25, 50, TRUE, 'https://vibez-store.com/wp-content/uploads/2024/11/tshirt-1.jpg'),
+(102, 'Jeans', 40, 30, FALSE, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZjV6VCxaorzk8zzFbgBf3rxvyUg2DZyqtfw&s'),
+(103, 'Jacket', 60, 20, TRUE, 'https://cdn-images.farfetch-contents.com/24/09/94/78/24099478_54252248_600.jpg'),
+(104, 'Dress', 25, 50, TRUE, 'https://m.media-amazon.com/images/I/51ywkd-yHpL._AC_.jpg'),
+(105, 'Blue T-Shirt', 40, 30, FALSE, 'https://hourscollection.com/cdn/shop/files/BlankRoyalBlueTeeproduct_1.jpg?v=1688656338'),
+(106, 'Denim Jacket', 60, 20, TRUE, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNxGUDHFbfV86N7mSE97jxm8r-FPioPEhVww&s');
 
 
 -- Insert into clothes_in_transaction
 INSERT INTO online_store.clothes_in_transaction (order_num, sku, amount)
 VALUES
 (1001, 101, 2), -- 2 T-Shirts in John's order
-(1003, 101, 1),
 (1002, 103, 1),
 (1002, 101, 2), -- 2 T-Shirts in John's order
-(1003, 103, 1),
 (1002, 102, 2),
-(1003, 102, 1),
 (1001, 102, 1),
 (1001, 103, 1); -- 1 Jacket in Jane's order
 

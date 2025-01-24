@@ -30,6 +30,10 @@ input[type="password"]:focus,
   outline: none;
 }
 
+label {
+  font-size: 12px;
+}
+
 body {
   font-size: 1px;
   margin: 0;
@@ -107,6 +111,7 @@ a {
 .signin {
   background-color: #f1f1f1;
   text-align: center;
+  margin-top: 10px;
 }
 
 table {

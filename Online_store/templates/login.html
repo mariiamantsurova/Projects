@@ -3,7 +3,10 @@
     <title>Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+RO&family=Raleway:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="{{url_for('static', filename='css/global.css')}}"
@@ -13,10 +16,10 @@
 
    <body>
         <h4 class="warning">{{message}}</h4>
-
+        <img id="logo" src="{{url_for('static', filename='image/logo.png') }}" alt="logo">
         <form action="/login" method="post">
           <div class="container">
-                <h1>Login</h1>
+                <h1 class="title">Login</h1>
                 <p>Please fill in this form to login</p>
                 <hr>
                 <table>

@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playwrite+RO&family=Raleway:wght@100..900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -21,23 +21,26 @@
     />
   </head>
   <body>
-    <h1>Successful Transaction</h1>
-    <h2>order number: <strong>{{order_num}}</strong></h2>
-    <table>
-      <thead>
-        <tr>
-          <th>SKU</th>
-          <th>Quantity</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for sku, quantity in items.items() %}
-        <tr>
-          <td>{{ sku }}</td>
-          <td>{{ quantity }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="transaction-container">
+      <h1 class="title">Successful Transaction</h1>
+      <h2>order number: <strong>{{order_num}}</strong></h2>
+      <table>
+        <thead>
+          <tr>
+            <th>SKU</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for sku, quantity in items.items() %}
+          <tr>
+            <td>{{ sku }}</td>
+            <td>{{ quantity }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a href="/" class="home-btn">Go back</a>
+    </div>
   </body>
 </html>
