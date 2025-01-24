@@ -38,7 +38,7 @@ def home_route(app,cursor,mydb):
         
     @app.route('/logout')
     def logout():
-        session.clear()  # This clears the entire session, including user email
-        return redirect("/login")  # Redirect to the homepage after logging
+        session.clear() 
+        return redirect("/login")  
 
 
