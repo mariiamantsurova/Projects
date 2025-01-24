@@ -36,6 +36,9 @@ def home_route(app,cursor,mydb):
             clothes = cursor.fetchall()
             return render_template("home_page.html",clothes=clothes, is_admin = is_admin)
         
+    @app.route('/logout')
+    def logout():
+        session.clear()  # This clears the entire session, including user email
+        return redirect("/login")  # Redirect to the homepage after logging
 
 
-        

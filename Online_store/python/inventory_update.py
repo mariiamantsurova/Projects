@@ -1,10 +1,15 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, session, redirect, flash
 from datetime import datetime
 
 def inventory_update_route(app,cursor,mydb):
     @app.route('/inventory_update/<email>')
     def inventory_update(email):
         try:
+            # # First, check if the user is logged in by verifying the session email
+            # if 'user_email' not in session or session['user_email'] != email:
+            #     message = "You are not authorized to view this page. Redirecting to homepage."
+            #     return render_template('home_page.html', message=message, is_error=True)
+
             # Check if the user exists and is an admin
             cursor.execute("SELECT u.is_admin FROM online_store.users u WHERE u.email = %s", (email,))
             result = cursor.fetchone()
@@ -12,6 +17,10 @@ def inventory_update_route(app,cursor,mydb):
             if result is None:
                 message = "User not found. Please register."
                 return render_template('register.html', message=message, is_error=True)
+
+            # If the session and email match, render the inventory page
+            return render_template('inventory_update.html', email=email)
+
             # checking if the user is an admin
             is_admin = result[0]
             if not is_admin:
@@ -22,7 +31,12 @@ def inventory_update_route(app,cursor,mydb):
             cursor.execute("SELECT sku FROM online_store.clothes")
             cloth_ids = [row[0] for row in cursor.fetchall()]
             print(f"Email passed to template: {email}")
-            return render_template('inventory_update.html', cloth_ids=cloth_ids, email=email)
+            # extract user's name from the DB to display it in the page
+            cursor.execute("SELECT username FROM users WHERE email = %s", (email,))
+            user_name = cursor.fetchone()
+            if user_name:
+                user_name = user_name[0]
+            return render_template('inventory_update.html', cloth_ids=cloth_ids, email=email, user_name=user_name)
 
         except Exception as e:
             message = f"An unexpected error occurred: {e}"
@@ -95,19 +109,3 @@ def inventory_update_route(app,cursor,mydb):
         # If the request method is not POST, redirect back to the inventory update page
 
         return redirect(f'/inventory_update/{manager_email}')
-
-    # @app.route('/handle_form', methods=['POST'])
-    # def update_table():
-    #     # if the manager pressed the update button:
-    #     if request.method == 'POST':
-    #         # Get data from the form
-    #         table_name = 'online_store.clothes'
-    #         cloth_id = request.form['cloth_id']
-    #         quantity_to_update = int(request.form['quantity_to_update'])
-    #         query = f"UPDATE {table_name} SET available_amount = available_amount + %s WHERE cloth_id = %s"
-    #         values = (quantity_to_update, cloth_id)
-    #         # Execute the query
-    #         cursor.execute(query, values)
-    #         mydb.commit()
-    #         return render_template("inventory_update.html", message="Record updated successfully!")
-

@@ -1,3 +1,5 @@
+
+/* Body Styling */
 body {
   text-align: center;
   justify-content: center; /* Horizontally centers the table */
@@ -6,6 +8,11 @@ body {
   margin: 0; /* Removes default margin */
   padding: 0; /* Removes default padding */
 }
+.labels {
+  text-align: left;
+}
+
+/* Page Header */
 .page_header {
   background-color: #f9f9f9;
   padding: 20px; /* Add padding inside the card */
@@ -14,67 +21,135 @@ body {
   margin: 20px auto; /* Center the card on the page */
 }
 
+.back-link {
+  position: fixed;  /* Fixes the link's position on the screen */
+  left: 20px;       /* Position the link 20px from the left side of the page */
+  top: 20px;        /* Position the link 20px from the top */
+  font-size: 16px;  /* Font size */
+  color: #034694;   /* Link color */
+  text-decoration: none;  /* Removes underline from the link */
+  background-color: #f9f9f9;  /* Background color */
+  padding: 10px 20px;  /* Padding around the link */
+  border-radius: 5px;  /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+  transition: background-color 0.3s ease, color 0.3s ease;  /* Smooth transitions */
+}
+
+.back-link:hover {
+  background-color: #034694;  /* Background color on hover */
+  color: white;  /* Text color on hover */
+}
+/* Card Style */
 .card-div {
-  background-color: #f1f1f1; /* light gray */
+  background-color: #f9f9f9; /* light gray background*/
   color: black;
-  width: 400px; /* Define the width of the card */
+  width: 450px; /* Define the width of the card */
   padding: 20px; /* Add padding inside the card */
   border-radius: 5px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the card */
   margin: 20px auto; /* Center the card on the page */
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Arrange children vertically */
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
+  height: auto; /* Adjust height based on content */
+
 }
 
-.h1 {
+
+
+/* Heading Styling */
+h1, h3 {
   text-align: center;
-  color: #0e3386; /* cubes blue text*/
+  color: #0e3386;
 }
-
+/* Table and Labels */
 .table {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   border-radius: 10px; /* Rounded corners */
+
 }
 .p {
   color: #7f8c8d;
 }
-.labels {
+th {
   text-align: left;
+  font-weight: bold;
+}
+/* Table cell with radio buttons */
+td {
+  display: flex; /* Use flexbox to align items in a row */
+  align-items: center; /* Vertically align the radio buttons */
+  gap: 10px; /* Add space between the radio buttons */
 }
 
-input,
-select {
-  border-radius: 5px; /* Rounds the corners of the input fields */
-  padding: 3px; /* Add padding to the input fields */
-  border: 1px solid #034694; /* chelsea blue border */
-  font-size: 15px; /* Text size */
-  width: 100%; /* Make inputs fill the available width */
-  transition: border-color 0.3s ease; /* Smooth transition for border color */
-}
-
-input:focus,
-select:focus {
-  border-color: #034694; /* Change border color on focus */
-  outline: none; /* Remove default outline */
-}
-
-.important_button {
-  color: #034694; /*chelsea blue */
-  background-color: white;
+input, select {
+  width: 100%;
+  padding: 6px 8px;
   border: 1px solid #034694;
-  border-radius: 5px; /* Rounded corners */
-  padding: 5px 15px; /* Increase padding for a larger button */
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease; /* Smooth transition */
-  width: auto; /* Set width to auto to prevent stretching */
+  border-radius: 5px;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
+
+input:focus, select:focus {
+  border-color: #034694;
+  outline: none;
+}
+
+/* Buttons */
+.important_button {
+  background-color: white;
+  color: #034694;
+  border: 1px solid #034694;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: auto;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
 .important_button:hover {
-  background-color: #034694; /* chelsea blue background on hover */
-  color: white; /* white text on hover */
+  background-color: #034694;
+  color: white;
   border-color: #034694;
 }
+
 .important_button:active {
-  background-color: #66a9ff; /* Slightly darker blue when clicked */
-  color: white; /* White text when clicked */
-  border-color: #4a90e2; /* Darker blue border when clicked */
+  background-color: #66a9ff;
+  color: white;
+  border-color: #4a90e2;
+}
+
+/* Common style for the message */
+.message {
+    position: fixed;               /* Fixed position to stay on the screen */
+    top: 0;                       /* Center vertically */
+    left: 50%;                     /* Center horizontally */
+    transform: translate(-50%, -50%); /* Ensure it's truly centered */
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    width: 80%;                    /* Adjust width */
+    text-align: center;            /* Center the text */
+    z-index: 9999;                 /* Ensure it stays on top of other content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow around the message */
+}
+
+/* Style for error messages */
+.error {
+    background-color: #f8d7da;     /* Light red background */
+    color: #721c24;                /* Dark red text */
+    border: 1px solid #f5c6cb;     /* Red border */
+}
+
+/* Style for success messages */
+.success {
+    background-color: #d4edda;     /* Light green background */
+    color: #155724;                /* Dark green text */
+    border: 1px solid #c3e6cb;     /* Green border */
 }
