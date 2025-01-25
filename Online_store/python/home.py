@@ -5,12 +5,11 @@ import random
 def home_route(app,cursor,mydb):
     @app.route('/', methods=['GET', 'POST'])
     def home():
-        try:
-            if 'email' not in session:
-                return redirect('/login')
-            if request.method == 'POST':
-                items = dict(request.form)
-
+        if 'email' not in session:
+            return redirect('/login')
+        if request.method == 'POST':
+            items = dict(request.form)
+            try:
                 modified_items = {}
                 for sku,quantity in items.items():
                     if int(quantity) > 0:
@@ -27,18 +26,26 @@ def home_route(app,cursor,mydb):
                     return render_template("transaction.html", order_num=order_num, items=modified_items)
                 else:
                     return render_template("error.html", error="No item was added to the cart")
-        except Exception as e:
-            error = f"error: {e}"
-            return render_template('error.html', error=error)
+            except Exception as e:
+                error = f"error: {e}"
+                return render_template('error.html', error=error)
             
         else:
-         
-            cursor.execute("SELECT u.is_admin FROM online_store.users u WHERE email = %s",(session['email'],))    
-            is_admin = cursor.fetchone()[0]
+            try:
+                cursor.execute("SELECT u.is_admin FROM online_store.users u WHERE email = %s",(session['email'],))    
+                is_admin = cursor.fetchone()[0]
 
-            cursor.execute("SELECT * FROM online_store.clothes ORDER BY is_promoted")
-            clothes = cursor.fetchall()
-            return render_template("home_page.html",clothes=clothes, is_admin = is_admin)
+                cursor.execute("SELECT * FROM online_store.clothes ORDER BY is_promoted")
+                clothes = cursor.fetchall()
+                
+                modified_clothes = []
+                for cloth in clothes:
+                    if cloth[3] > 0:
+                        modified_clothes.append(cloth)
+                return render_template("home_page.html",clothes=modified_clothes, is_admin = is_admin)
+            except Exception as e:
+                error = f"error: {e}"
+                return render_template('error.html', error=error)
         
     @app.route('/logout')
     def logout():

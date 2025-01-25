@@ -20,18 +20,11 @@
     </div>
     <h3>Hello, {{ user_name }}! What would you like to do today?</h3><div>
     <a href="/" class="back-link">Back to home page</a>
-        <!-- Display the message if it exists -->
-        {% if message %}
-            <div class="message {% if is_error %}error{% else %}success{% endif %}">
-                <p>{{ message }}</p>
-                <a href="/inventory_update/{{session['email']}}">x</a>
-            </div>
-        {% endif %}
     </div>
     <div class="card-div">
         <h1 class="h1"> Inventory Update</h1>
         <!-- Form for updating inventory -->
-        <form action="/handle_form" method="post">
+        <form action="/inventory_update/{{email}}" method="post">
         <input type="hidden" name="manager_email" value="{{ email }}" />
         <table>
             <tr>
@@ -61,7 +54,7 @@
     <div class="card-div">
         <h1 class="h1"> Add New Item</h1>
         <!-- Form for Adding a new item -->
-        <form action="/handle_form" method="post">
+        <form action="/inventory_update/{{email}}" method="post">
             <input type="hidden" name="manager_email" value="{{ email }}" />
         <table>
             <tr>
