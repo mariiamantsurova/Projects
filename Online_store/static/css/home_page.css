@@ -140,11 +140,11 @@ h1 {
   align-self: center;
   justify-self: center;
   display: flex;
-  padding: 30px;
+  padding: 50px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 50%;
+  height: auto;
   width: 50%;
   border: 1px solid #d3d3d3;
   border-radius: 10px;
