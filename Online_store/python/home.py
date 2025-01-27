@@ -35,7 +35,7 @@ def home_route(app,cursor,mydb):
                 cursor.execute("SELECT u.is_admin FROM online_store.users u WHERE email = %s",(session['email'],))    
                 is_admin = cursor.fetchone()[0]
 
-                cursor.execute("SELECT * FROM online_store.clothes ORDER BY is_promoted")
+                cursor.execute("SELECT * FROM online_store.clothes ORDER BY is_promoted DESC")
                 clothes = cursor.fetchall()
                 
                 modified_clothes = []
