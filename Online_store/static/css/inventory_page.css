@@ -53,9 +53,24 @@ body {
   align-items: center; /* Horizontally center the content */
   height: auto; /* Adjust height based on content */
 }
-
+.new-div{
+  background-color: #f9f9f9; /* Light gray background */
+  color: black;
+  width: 450px; /* Define the width of the card */
+  padding: 20px; /* Add padding inside the card */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin: 20px auto; /* Center the card on the page */
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Arrange children vertically */
+  justify-content: flex-start; /* Align items to the top of the card */
+  align-items: center; /* Horizontally center the content */
+  height: auto; /* Adjust height based on content */
+  padding-top: 100px;
+}
 /* Heading Styling */
 h1,
+h2,
 h3 {
   text-align: center;
   color: #0e3386;
@@ -109,7 +124,8 @@ select:focus {
   width: auto;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease;
+  border-color 0.3s ease;
+  text-decoration: none;
 }
 
 .important_button:hover {
@@ -122,21 +138,6 @@ select:focus {
   background-color: #66a9ff;
   color: white;
   border-color: #4a90e2;
-}
-
-/* Common style for the message */
-.message {
-  position: fixed; /* Fixed position to stay on the screen */
-  top: 10%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Ensure it's truly centered */
-  padding: 20px;
-  border-radius: 5px;
-  font-size: 18px;
-  width: 80%; /* Adjust width */
-  text-align: center; /* Center the text */
-  z-index: 9999; /* Ensure it stays on top of other content */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow around the message */
 }
 
 /* Style for error messages */
@@ -153,11 +154,17 @@ select:focus {
   border: 1px solid #c3e6cb; /* Green border */
 }
 
-.success a,
-.error a {
-  text-decoration: none;
-  color: #7f8c8d;
-  position: absolute;
-  top: 0;
-  right: 10px;
+/* Style for the success message */
+.message.success {
+    position: absolute; /* Position it at the top of the page */
+    top: 20px;          /* Adjust as needed */
+    left: 50%;          /* Center horizontally */
+    transform: translateX(-50%); /* Center it perfectly */
+    padding: 20px;
+    background-color: #d4edda; /* Light green background for success */
+    color: #155724;      /* Dark green text */
+    border: 1px solid #c3e6cb; /* Green border */
+    border-radius: 5px;  /* Rounded corners */
+    text-align: center;
+    width: 80%;           /* Adjust width as needed */
 }
