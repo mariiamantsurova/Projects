@@ -12,7 +12,7 @@
 input[type="text"],
 input[type="password"],
 [type="number"],
-[type="email"] {
+[type="email"],  {
   width: 100%;
   padding: 6px 8px;
   margin-bottom: 2px;
@@ -22,6 +22,7 @@ input[type="password"],
   box-sizing: border-box;
   text-align: center;
 }
+
 
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -130,4 +131,23 @@ td {
   width: 60%;
   border-bottom: 1px solid #ddd;
   padding: 20px 20px;
+}
+
+
+* Styling the select dropdown for multiple choice */
+.faculty {
+  width: 100%;
+  padding: 6px 8px;
+  margin-bottom: 2px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 12px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Focus state for the select dropdown */
+select:focus {
+  background-color: #ddd;
+  outline: none;
 }
