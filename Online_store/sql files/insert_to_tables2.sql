@@ -25,6 +25,12 @@ VALUES
 ('lucas.allen19@gmail.com', 'LucasAllen19', 'abcde123', 23, 0, 'Math', FALSE),
 ('mila.king20@gmail.com', 'MilaKing20', 'qwert098', 21, 1, 'Engineering', FALSE);
 
+delete from clothes_in_transaction;
+delete from inventory_update;
+delete from new_items;
+delete from clothes;
+
+
 -- Insert into transactions
 -- Transactions for users, with unique order_num values:
 
@@ -146,9 +152,9 @@ INSERT INTO online_store.transactions (order_num, date, hour, email) VALUES
 INSERT INTO online_store.clothes (sku, name, price, available_amount, is_promoted, img_path)
 VALUES
 (10, 'Basic White T-Shirt', 15, 100, FALSE, 'https://xcdn.next.co.uk/COMMON/Items/Default/Default/ItemImages/AltItemShot/315x472/235459s2.jpg'),
-(11, 'Black T-Shirt', 20, 80, TRUE, 'https://vibez-store.com/wp-content/uploads/2024/11/tshirt-1.jpg'),
+(11, 'Blue T-Shirt', 20, 80, TRUE, 'https://hourscollection.com/cdn/shop/files/BlankRoyalBlueTeeproduct_1.jpg?v=1688656338'),
 (12, 'Sweater', 18, 50, FALSE, 'https://m.media-amazon.com/images/I/61DIDk2kiML._AC_SX679_.jpg'),
-(13, 'V-Neck T-Shirt', 17, 60, TRUE, 'https://m.media-amazon.com/images/I/61vqJXW3PUL._AC_SX679_.jpg'),
+(13, 'Black loose T-Shirt', 17, 60, TRUE, 'https://m.media-amazon.com/images/I/61vqJXW3PUL._AC_SX679_.jpg'),
 (14, 'Slim Fit Blue Jeans', 40, 120, FALSE, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZjV6VCxaorzk8zzFbgBf3rxvyUg2DZyqtfw&s'),
 (15, 'Black Skinny Jeans', 45, 70, TRUE, 'https://cherryla.com/cdn/shop/products/BlackJeanBack_2048x.jpg?v=1680865591'),
 (16, 'Dress', 35, 90, FALSE, 'https://m.media-amazon.com/images/I/51ywkd-yHpL._AC_.jpg'),
@@ -156,6 +162,7 @@ VALUES
 (18, 'Classic Leather Jacket', 120, 40, TRUE, 'https://www.schottnyc.com/images/800x800/519_BLK_FNT_NEW1.jpg'),
 (19, 'Denim Jacket', 60, 55, FALSE, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNxGUDHFbfV86N7mSE97jxm8r-FPioPEhVww&s'),
 (20, 'Puffer Jacket', 80, 30, TRUE, 'https://m.media-amazon.com/images/I/61P3PdkkMuL._AC_SY879_.jpg');
+
 
 
 -- Insert into clothes_in_transaction
