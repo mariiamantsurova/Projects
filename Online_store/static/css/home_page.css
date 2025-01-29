@@ -50,6 +50,8 @@ h1 {
 }
 .item-container img {
   max-width: 250px;
+  max-height: 250px;
+  object-fit: contain;
   width: 100%;
   height: auto;
   border-radius: 5px;
