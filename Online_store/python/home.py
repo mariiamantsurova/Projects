@@ -1,21 +1,21 @@
 from flask import render_template, request, session, redirect
-import random
-    
+# from app import order_num
 
-def home_route(app,cursor,mydb):
+def home_route(app,cursor,mydb, order_num):
     @app.route('/', methods=['GET', 'POST'])
     def home():
+        nonlocal order_num
         if 'email' not in session:
             return redirect('/login')
         if request.method == 'POST':
             items = dict(request.form)
             try:
                 modified_items = {}
+                order_num += 1
                 for sku,quantity in items.items():
                     if int(quantity) > 0:
                         modified_items[int(sku)] = int(quantity)
                 if modified_items:
-                    order_num = random.randint(100000, 999999)
                     cursor.execute("""INSERT INTO online_store.transactions (order_num, date, hour, email) VALUES (%s, CURDATE(), CURTIME(), %s)""",(order_num, session['email'])
                         )               
                     mydb.commit()

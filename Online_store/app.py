@@ -15,16 +15,18 @@ mydb = mysql.connector.connect(
 )
 cursor = mydb.cursor()
 
-
-
+cursor.execute("SELECT IFNULL(MAX(order_num), 1000) FROM online_store.transactions")
+order_num = cursor.fetchone()[0] 
 app = Flask(__name__, template_folder='templates')
+
+
 # session config
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"]= "filesystem" 
 Session(app)
 
 # Import routes from other files
-home_route(app, cursor,mydb)
+home_route(app, cursor,mydb, order_num)
 inventory_update_route(app, cursor,mydb)
 register_and_login(app, cursor,mydb)
 error_route(app)
