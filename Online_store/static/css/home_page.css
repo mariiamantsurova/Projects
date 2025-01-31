@@ -142,6 +142,7 @@ h1 {
   align-self: center;
   justify-self: center;
   display: flex;
+  text-align: center;
   padding: 50px;
   align-items: center;
   justify-content: center;
