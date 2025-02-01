@@ -23,13 +23,12 @@ def inventory_update_route(app,cursor,mydb):
                 # extract all SKUs from the clothes table
                 cursor.execute("SELECT sku FROM online_store_15.clothes")
                 cloth_ids = [row[0] for row in cursor.fetchall()]
-                # print(f"Email passed to template: {email}")
                 # extract user's name from the DB to display it in the page
                 cursor.execute("SELECT username FROM users WHERE email = %s", (email,))
                 user_name = cursor.fetchone()
                 if user_name:
                     user_name = user_name[0]
-                # Render the inventory update page with the necessary data
+                # render the inventory update page with the necessary data
                 return render_template('inventory_update.html', cloth_ids=cloth_ids, email=email, user_name=user_name)
 
             except Exception as e:
