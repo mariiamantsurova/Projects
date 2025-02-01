@@ -8,7 +8,7 @@ def inventory_update_route(app,cursor,mydb):
             try:
                 # # First, check if the user is logged in by verifying the session email
                 # Check if the user exists and is an admin
-                cursor.execute("SELECT u.is_admin FROM online_store.users u WHERE u.email = %s", (email,))
+                cursor.execute("SELECT u.is_admin FROM online_store_15.users u WHERE u.email = %s", (email,))
                 result = cursor.fetchone()
                 # if the user doesn't exist
                 if result is None:
@@ -21,7 +21,7 @@ def inventory_update_route(app,cursor,mydb):
                     return render_template('error.html', error=message)
                 # if the user is an admin:
                 # extract all SKUs from the clothes table
-                cursor.execute("SELECT sku FROM online_store.clothes")
+                cursor.execute("SELECT sku FROM online_store_15.clothes")
                 cloth_ids = [row[0] for row in cursor.fetchall()]
                 # print(f"Email passed to template: {email}")
                 # extract user's name from the DB to display it in the page
@@ -52,7 +52,7 @@ def inventory_update_route(app,cursor,mydb):
                         cloth_id = int(request.form['cloth_id'])
                         quantity_to_update = int(request.form['quantity_to_update'])
                     # updating amount in clothes table
-                        query = f"UPDATE online_store.clothes SET available_amount = available_amount + %s WHERE sku = %s"
+                        query = f"UPDATE online_store_15.clothes SET available_amount = available_amount + %s WHERE sku = %s"
                         values = (quantity_to_update, cloth_id)
                         cursor.execute(query, values)
                         if cursor.rowcount == 0:
@@ -60,7 +60,7 @@ def inventory_update_route(app,cursor,mydb):
                         mydb.commit()
 
                     # insert into inventory_update table
-                        query2 = f"INSERT INTO online_store.inventory_update(sku, email, quantity) VALUES (%s, %s, %s)"
+                        query2 = f"INSERT INTO online_store_15.inventory_update(sku, email, quantity) VALUES (%s, %s, %s)"
                         values2 = (cloth_id, manager_email, quantity_to_update)
                         cursor.execute(query2, values2)
                         mydb.commit()
@@ -81,12 +81,12 @@ def inventory_update_route(app,cursor,mydb):
                         img_path = request.form['img_path']
 
                     # Add the new item to clothes table
-                        query3 = f"INSERT INTO online_store.clothes(sku, name, price, available_amount, is_promoted, img_path) VALUES (%s, %s, %s, %s, %s, %s)"
+                        query3 = f"INSERT INTO online_store_15.clothes(sku, name, price, available_amount, is_promoted, img_path) VALUES (%s, %s, %s, %s, %s, %s)"
                         values3 = (cloth_id, cloth_name, cloth_price, available_amount,is_promoted, img_path )
                         cursor.execute(query3, values3)
                         mydb.commit()
                     # Add to the New_clothes table
-                        query4 = f"INSERT INTO online_store.new_items (sku, email) VALUES (%s, %s)"
+                        query4 = f"INSERT INTO online_store_15.new_items (sku, email) VALUES (%s, %s)"
                         values4 = (cloth_id, manager_email)
                         cursor.execute(query4, values4)
                         mydb.commit()
