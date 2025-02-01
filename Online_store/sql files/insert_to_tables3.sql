@@ -1,4 +1,4 @@
-INSERT INTO online_store.users (email, username, password, age, sex, faculty, is_admin)
+INSERT INTO online_store_15.users (email, username, password, age, sex, faculty, is_admin)
 VALUES
 ('amelia.scott16@gmail.com', 'AmeliaScott16', '876543ab', 29, 1, 'Exact Sciences', 0),
 ('avery.lopez13@gmail.com', 'AveryLopez13', 'asdfgh12', 27, 0, 'Math', 0),
@@ -25,7 +25,7 @@ VALUES
 ('sophia.garcia6@gmail.com', 'SophiaGarcia6', 'passw1x2', 24, 1, 'Law', 0);
 
 
-INSERT INTO online_store.transactions (order_num, date, hour, email)
+INSERT INTO online_store_15.transactions (order_num, date, hour, email)
 VALUES
 (1001, '2025-01-17', '14:30:00', 'john.doe1@gmail.com'),
 (1002, '2025-01-11', '15:10:45', 'john.doe1@gmail.com'),
@@ -105,7 +105,7 @@ VALUES
 (1076, '2025-01-07', '18:15:00', 'john.doe1@gmail.com');
 
 
-INSERT INTO online_store.clothes (sku, name, price, available_amount, is_promoted, img_path)
+INSERT INTO online_store_15.clothes (sku, name, price, available_amount, is_promoted, img_path)
 VALUES
 (10, 'Basic White T-Shirt', 15, 100, 0, 'https://xcdn.next.co.uk/COMMON/Items/Default/Default/ItemImages/AltItemShot/315x472/235459s2.jpg'),
 (11, 'Black Graphic T-Shirt', 20, 80, 1, 'https://m.media-amazon.com/images/I/71N30DW0zuL._AC_SY879_.jpg'),
@@ -119,7 +119,7 @@ VALUES
 (19, 'Denim Jacket', 60, 55, 0, 'https://www.mytheresa.com/media/1094/1238/100/a8/P00580765.jpg'),
 (20, 'Puffer Jacket', 80, 30, 1, 'https://m.media-amazon.com/images/I/61P3PdkkMuL._AC_SY879_.jpg');
 
-INSERT INTO online_store.clothes_in_transaction (order_num, sku, amount)
+INSERT INTO online_store_15.clothes_in_transaction (order_num, sku, amount)
 VALUES
 (1001, 10, 2),
 (1001, 14, 1),
@@ -168,13 +168,13 @@ VALUES
 (1075, 12, 4),
 (1076, 13, 5);
 
-INSERT INTO online_store.new_items (sku, email, timestamp)
+INSERT INTO online_store_15.new_items (sku, email, timestamp)
 VALUES
 (10, 'naomi@example.com', '2025-01-27 18:50:12'),
 (15, 'naomi@example.com', '2025-01-27 18:50:12');
 
 
-INSERT INTO online_store.inventory_update (sku, email, quantity, timestamp)
+INSERT INTO online_store_15.inventory_update (sku, email, quantity, timestamp)
 VALUES
 (10, 'naomi@example.com', 20, '2025-01-27 18:50:26'),
 (10, 'naomi@example.com', 20, '2025-01-28 18:44:29'),

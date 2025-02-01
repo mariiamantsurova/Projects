@@ -21,7 +21,7 @@ def register_and_login(app, cursor, mydb):
             is_admin = False  # Necessarily a regular user
 
             # Check if email already exists
-            cursor.execute("SELECT * FROM online_store.users WHERE email = %s;", (email,))
+            cursor.execute("SELECT * FROM online_store_15.users WHERE email = %s;", (email,))
             existing_user = cursor.fetchone()
             if existing_user:
                 # If email exists, return the registration page with an error message
@@ -29,7 +29,7 @@ def register_and_login(app, cursor, mydb):
 
             # insert new user info the users table.
             else:
-                query = "INSERT INTO online_store.users(email, username, password, age, sex, faculty, is_admin) VALUES(%s,%s,%s,%s,%s,%s,%s);"
+                query = "INSERT INTO online_store_15.users(email, username, password, age, sex, faculty, is_admin) VALUES(%s,%s,%s,%s,%s,%s,%s);"
                 values = (email, name, password, age, sex, faculty, is_admin)
                 cursor.execute(query, values)
                 mydb.commit()
@@ -47,7 +47,7 @@ def register_and_login(app, cursor, mydb):
             email = request.form.get("email")  # unique value
             password = request.form.get("password")  # unique value
             # Check if user detail's already exists
-            cursor.execute("SELECT * FROM online_store.users WHERE email = %s and password = %s;", (email, password))
+            cursor.execute("SELECT * FROM online_store_15.users WHERE email = %s and password = %s;", (email, password))
             existing_user = cursor.fetchone()
             if existing_user:
                 session['email'] = email

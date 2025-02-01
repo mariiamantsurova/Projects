@@ -16,7 +16,7 @@ def home_route(app,cursor,mydb, order_num):
                     if int(quantity) > 0:
                         modified_items[int(sku)] = int(quantity)
                 if modified_items:
-                    cursor.execute("""INSERT INTO online_store.transactions (order_num, date, hour, email) VALUES (%s, CURDATE(), CURTIME(), %s)""",(order_num, session['email'])
+                    cursor.execute("""INSERT INTO online_store_15.transactions (order_num, date, hour, email) VALUES (%s, CURDATE(), CURTIME(), %s)""",(order_num, session['email'])
                         )               
                     mydb.commit()
                     for sku, quantity in modified_items.items():
@@ -32,10 +32,10 @@ def home_route(app,cursor,mydb, order_num):
             
         else:
             try:
-                cursor.execute("SELECT u.is_admin FROM online_store.users u WHERE email = %s",(session['email'],))    
+                cursor.execute("SELECT u.is_admin FROM online_store_15.users u WHERE email = %s",(session['email'],))
                 is_admin = cursor.fetchone()[0]
 
-                cursor.execute("SELECT * FROM online_store.clothes ORDER BY is_promoted DESC")
+                cursor.execute("SELECT * FROM online_store_15.clothes ORDER BY is_promoted DESC")
                 clothes = cursor.fetchall()
                 
                 modified_clothes = []
