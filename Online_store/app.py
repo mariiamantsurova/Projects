@@ -15,7 +15,7 @@ mydb = mysql.connector.connect(
 )
 cursor = mydb.cursor()
 
-cursor.execute("SELECT IFNULL(MAX(order_num), 1000) FROM online_store.transactions")
+cursor.execute("SELECT IFNULL(MAX(order_num), 1000) FROM online_store_15.transactions")
 order_num = cursor.fetchone()[0] 
 app = Flask(__name__, template_folder='templates')
 

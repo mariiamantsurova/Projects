@@ -5,11 +5,13 @@ def home_route(app,cursor,mydb, order_num):
     @app.route('/', methods=['GET', 'POST'])
     def home():
         nonlocal order_num
+        #if session does not exist redirect the user back to the login page
         if 'email' not in session:
             return redirect('/login')
         if request.method == 'POST':
             items = dict(request.form)
             try:
+                #conduct transactions only for clothes with a quantity greater than zero.
                 modified_items = {}
                 order_num += 1
                 for sku,quantity in items.items():
@@ -32,12 +34,14 @@ def home_route(app,cursor,mydb, order_num):
             
         else:
             try:
+                #check if the user is admin based on that show the link to the admin page
                 cursor.execute("SELECT u.is_admin FROM online_store_15.users u WHERE email = %s",(session['email'],))
                 is_admin = cursor.fetchone()[0]
 
                 cursor.execute("SELECT * FROM online_store_15.clothes ORDER BY is_promoted DESC")
                 clothes = cursor.fetchall()
                 
+                #do not display clothes with an available amount less than zero.
                 modified_clothes = []
                 for cloth in clothes:
                     if cloth[3] > 0:
