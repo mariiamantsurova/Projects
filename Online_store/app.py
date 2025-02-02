@@ -1,9 +1,9 @@
 from flask  import Flask , session
 import mysql.connector
-from python.home import home_route
-from python.inventory_update import inventory_update_route
-from python.registration_and_login import register_and_login
-from python.error import error_route
+from main.home import home_route
+from main.inventory_update import inventory_update_route
+from main.registration_and_login import register_and_login
+from main.error import error_route
 from flask_session import Session
 
 # Setting up SQL connection
