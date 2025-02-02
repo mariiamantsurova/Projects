@@ -1,21 +1,21 @@
 import mysql.connector
 
-# ✅ Database connection settings
+#  Database connection settings
 db_config = {
-    "host": "localhost",  # Change if your MySQL is on another server
-    "user": "root",       # Change to your MySQL username
+    "host": "localhost",
+    "user": "root",
     "password": "root", 
 }
 
-# ✅ Connect to MySQL
+# Connect to MySQL
 conn = mysql.connector.connect(**db_config)
 cursor = conn.cursor()
 
-# ✅ Create Schema
+# Create Schema
 cursor.execute("CREATE SCHEMA IF NOT EXISTS online_store_15;")
 cursor.execute("USE online_store_15;")
 
-# ✅ Create Tables
+# Create Tables
 tables = {
     "users": """
         CREATE TABLE IF NOT EXISTS users (
@@ -83,12 +83,12 @@ tables = {
     """
 }
 
-# ✅ Execute table creation
+# Execute table creation
 for table_name, create_table_query in tables.items():
     cursor.execute(create_table_query)
-    print(f"✅ Table '{table_name}' created successfully.")
+    print(f" Table '{table_name}' created successfully.")
 
-# ✅ Insert Sample Data
+# Insert Sample Data
 sample_data = {
     "users": """
         INSERT INTO users (email, username, password, age, sex, faculty, is_admin)
@@ -284,14 +284,14 @@ sample_data = {
     """
 }
 
-# ✅ Execute insert statements
+#  Execute insert statements
 for table_name, insert_query in sample_data.items():
     cursor.execute(insert_query)
-    print(f"✅ Data inserted into '{table_name}' successfully.")
+    print(f" Data inserted into '{table_name}' successfully.")
 
-# ✅ Commit and close connection
+#  Commit and close connection
 conn.commit()
 cursor.close()
 conn.close()
 
-print("\n🎉 Database setup completed successfully!")
+print("\n Database setup completed successfully!")
